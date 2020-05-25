@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_btn_white_not_stroke">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_restaurant"
+        style="@style/BackGroundImageView"
+        android:layout_width="@dimen/_56sdp"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:riv_corner_radius="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@drawable/bg_image_corner"
+        android:scaleType="centerCrop"
+        android:src="@drawable/demo_royal_tea" />
+
+    <LinearLayout
+        android:id="@+id/ln_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_toEndOf="@id/img_restaurant"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Royal Tee"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="Đồ uống"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_10ssp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:src="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/txt_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="316 Trần Cung, Cổ Nhuế, Hà Nội"
+                android:textSize="@dimen/_10ssp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/ic_state" />
+
+        <TextView
+            android:id="@+id/txt_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đang mở"
+            android:textColor="@color/colorActive"
+            android:textSize="@dimen/_11ssp" />
+    </LinearLayout>
+
+</RelativeLayout>

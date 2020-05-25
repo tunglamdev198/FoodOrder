@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Lâm Food</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_address_shipment">Địa chỉ giao hàng</string>
+    <string name="text_select_all">Chọn tất cả</string>
+    <string name="text_order_value">Đơn giá</string>
+    <string name="txt_delivery_value">Phí vận chuyển</string>
+    <string name="txt_discount">Giảm giá</string>
+    <string name="text_amount_payment">Tổng hóa đơn</string>
+    <string name="text_payment_options">Phương thức thanh toán</string>
+    <string name="text_payment_by_credit_card">Thanh toán bằng thẻ tín dụng</string>
+    <string name="text_payment_by_cast">Thanh toán khi nhận hàng</string>
+    <string name="text_confirm_payment">Hoàn tất thanh toán</string>
+    <string name="text_order">Đơn hàng</string>
+    <string name="text_discount_code">Mã giảm giá</string>
+    <string name="text_choose_payment_options">Chọn phương thức thanh toán</string>
+    <string name="text_location">Địa điểm</string>
+    <string name="hint_input_account">Email / Số điện thoại</string>
+    <string name="text_password">Mật khẩu</string>
+    <string name="text_visible">Hiện</string>
+    <string name="text_continue">Tiếp tục</string>
+    <string name="text_skip">Bỏ qua</string>
+    <string name="text_register">Đăng kí</string>
+    <string name="text_login">Đăng nhập</string>
+</resources>

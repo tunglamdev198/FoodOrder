@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:padding="@dimen/_16sdp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_4sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/img_type"
+                        android:layout_width="@dimen/_56sdp"
+                        android:layout_height="@dimen/_56sdp"
+                        android:layout_gravity="center_horizontal"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/success_animate"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/txt_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_11ssp"
+                        tools:text="Đăng kí thông tin khách hàng thành công\n Vui lòng đăng nhập!" />
+
+                    <Button
+                        android:id="@+id/btn_action"
+                        style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/bg_btn_login"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        tools:text="Đăng nhập" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_circle_white"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_close_black_24dp"
+            tools:ignore="ContentDescription" />
+
+    </FrameLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.cardview.widget.CardView android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    app:cardCornerRadius="@dimen/_4sdp"-->
+<!--    android:elevation="@dimen/_2sdp"-->
+<!--    android:layout_margin="@dimen/_4sdp"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        app:riv_corner_radius="@dimen/_6sdp"
+        android:id="@+id/img_food"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:scaleType="center"
+        android:src="@drawable/demo_tra_sua" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_food"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Trà sữa vị nhài"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_name"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="Đồ uống"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_10ssp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_category">
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:text="$ 20.000"
+            android:textColor="@color/colorPriceBlue"
+            android:textSize="@dimen/_10ssp" />
+
+        <TextView
+            android:id="@+id/txt_recent_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_price"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:text="$ 20.000"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_10ssp" />
+
+        <ImageView
+            android:id="@+id/btn_add_food"
+            android:layout_width="@dimen/_26sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_add_food" />
+    </RelativeLayout>
+</RelativeLayout>
+<!--</androidx.cardview.widget.CardView>-->

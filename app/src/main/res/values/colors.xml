@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E24017</color>
+    <color name="colorPrimaryDark">@android:color/white</color>
+    <color name="colorAccent">#FFBB00</color>
+    <color name="colorActive">#07cc63</color>
+    <color name="colorPriceBlue">#63CFFF</color>
+    <color name="colorTextDiscount">#D75A4A</color>
+    <color name="colorError">#e3342f</color>
+    <color name="colorSucces">#0A7A67</color>
+    <color name="colorBorderEditText">#DFE0E1</color>
+    <color name="colorTextColorGray">#646C70</color>
+    <color name="colorOrange">#ff4f01</color>
+</resources>

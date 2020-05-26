@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.foody;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,8 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.utils.FragmentUtil;
-import com.lamnt.foodorder.view.adapter.OrdersAdapter;
+import com.lamnt.foodorder.view.adapter.recycleradapter.OrdersAdapter;
 import com.lamnt.foodorder.view.common.PopupNotify;
+import com.lamnt.foodorder.view.fragment.payment.PaymentFragment;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 
 import java.util.ArrayList;

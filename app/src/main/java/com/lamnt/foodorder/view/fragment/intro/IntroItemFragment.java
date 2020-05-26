@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.intro;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

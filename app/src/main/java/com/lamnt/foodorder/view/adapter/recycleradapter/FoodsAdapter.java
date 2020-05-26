@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.adapter;
+package com.lamnt.foodorder.view.adapter.recycleradapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.lamnt.foodorder.R;
 
-public class FoodsAdapter2 extends RecyclerView.Adapter<FoodsAdapter2.ViewHolder> {
+public class FoodsAdapter extends RecyclerView.Adapter<FoodsAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private Context context;
 
-    public FoodsAdapter2(Context context) {
+    public FoodsAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -24,7 +24,7 @@ public class FoodsAdapter2 extends RecyclerView.Adapter<FoodsAdapter2.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_recent_restaurant, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_restaurant_home, parent, false));
     }
 
     @Override
@@ -34,7 +34,7 @@ public class FoodsAdapter2 extends RecyclerView.Adapter<FoodsAdapter2.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 6;
+        return 12;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

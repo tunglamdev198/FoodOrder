@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.lamnt.foodorder.R;
-import com.lamnt.foodorder.view.fragment.SplashFragment;
+import com.lamnt.foodorder.view.fragment.intro.SplashFragment;
 
 public class SplashActivity extends AppCompatActivity {
 

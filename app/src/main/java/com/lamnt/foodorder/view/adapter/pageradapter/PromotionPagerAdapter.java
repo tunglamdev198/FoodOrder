@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.adapter;
+package com.lamnt.foodorder.view.adapter.pageradapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -32,16 +32,20 @@ public class PromotionPagerAdapter extends RecyclerView.Adapter<PromotionPagerAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (position==0)
-        ImageHelper.loadImage(activity, holder.imgPromotion, R.drawable.demo_discound_1);
+        ImageHelper.loadImage(activity, holder.imgPromotion, R.drawable.demo_discount_1);
         if (position==1)
         ImageHelper.loadImage(activity, holder.imgPromotion, R.drawable.demo_discound_2);
         if (position==2)
         ImageHelper.loadImage(activity, holder.imgPromotion, R.drawable.demo_discound_3);
+        if (position==3)
+            ImageHelper.loadImage(activity, holder.imgPromotion, R.drawable.demo_discount_4);
+        if (position==4)
+            ImageHelper.loadImage(activity, holder.imgPromotion, R.drawable.demo_discount_5);
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 5;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

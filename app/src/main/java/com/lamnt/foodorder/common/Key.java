@@ -7,4 +7,9 @@ public interface Key {
         String BUTTON_ACTION = "button_action";
         String TYPE = "type";
     }
+
+    interface Action {
+        String REGISTER = "register";
+        String LOGIN = "login";
+    }
 }

@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.payment;
 
 import android.os.Bundle;
 

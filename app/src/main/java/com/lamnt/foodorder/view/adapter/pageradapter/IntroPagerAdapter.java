@@ -1,11 +1,11 @@
-package com.lamnt.foodorder.view.adapter;
+package com.lamnt.foodorder.view.adapter.pageradapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.lamnt.foodorder.view.fragment.IntroItemFragment;
+import com.lamnt.foodorder.view.fragment.intro.IntroItemFragment;
 
 public class IntroPagerAdapter extends FragmentStateAdapter {
     private OnTabSelected onTabSelected;

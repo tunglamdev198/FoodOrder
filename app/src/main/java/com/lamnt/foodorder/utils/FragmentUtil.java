@@ -46,6 +46,36 @@ public class FragmentUtil {
         }
     }
 
+    public static void replaceFragmentNonBackStack(Activity activity,
+                                       Fragment fragment,
+                                       boolean anim) {
+        if (activity != null && !activity.isFinishing()) {
+            String backStateName = fragment.getClass().getName();
+
+            FragmentManager manager = ((AppCompatActivity) activity).getSupportFragmentManager();
+            boolean fragmentPopped = false;
+            try {
+                fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
+            } catch (IllegalStateException ignored) {
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (!fragmentPopped) {
+                FragmentTransaction ft = manager.beginTransaction();
+                if (anim){
+                    ft.setCustomAnimations(
+                            R.anim.enter,
+                            R.anim.exit,
+                            R.anim.pop_enter,
+                            R.anim.pop_exit);
+                }
+                ft.replace(R.id.container, fragment, backStateName);
+                ft.commitAllowingStateLoss();
+            }
+        }
+    }
+
     public static void replaceFragment(Activity activity,
                                        @IdRes int frameId,
                                        Fragment fragment,

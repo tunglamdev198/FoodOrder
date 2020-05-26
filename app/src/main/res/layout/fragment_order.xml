@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@android:color/white"
-    tools:context=".view.fragment.OrderFragment">
+    tools:context=".view.fragment.foody.OrderFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

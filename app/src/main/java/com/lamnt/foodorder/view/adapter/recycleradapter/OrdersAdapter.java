@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.adapter;
+package com.lamnt.foodorder.view.adapter.recycleradapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

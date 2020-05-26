@@ -11,14 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.utils.FragmentUtil;
-import com.lamnt.foodorder.view.fragment.HomeFragment;
-import com.lamnt.foodorder.view.fragment.IntroFragment;
-import com.lamnt.foodorder.view.fragment.OrderFragment;
-import com.lamnt.foodorder.view.fragment.PaymentFragment;
-import com.lamnt.foodorder.view.fragment.RestaurantFragment;
+import com.lamnt.foodorder.view.fragment.foody.HomeFragment;
+import com.lamnt.foodorder.view.fragment.foody.OrderFragment;
+import com.lamnt.foodorder.view.fragment.payment.PaymentFragment;
+import com.lamnt.foodorder.view.fragment.foody.RestaurantFragment;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity
         refreshLayout.setRefreshing(false);
         bottomNav.setOnNavigationItemSelectedListener(this);
         bottomNav.setSelectedItemId(R.id.mnu_home);
+        visibleBadge(R.id.mnu_bag);
     }
 
     @OnClick(R.id.btn_back)
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadFragment(Fragment fragment){
-        FragmentUtil.replaceFragment(this, fragment,false);
+        FragmentUtil.replaceFragmentNonBackStack(this, fragment,false);
     }
 
     @Override
@@ -74,12 +75,8 @@ public class MainActivity extends AppCompatActivity
                 loadFragment(new HomeFragment());
                 return true;
 
-            case R.id.mnu_food:
-                loadFragment(new OrderFragment());
-                return true;
-
             case R.id.mnu_bag:
-                loadFragment(new RestaurantFragment());
+                loadFragment(new OrderFragment());
                 return true;
 
             case R.id.mnu_account:
@@ -87,5 +84,19 @@ public class MainActivity extends AppCompatActivity
                 return true;
         }
         return false;
+    }
+
+    public void visibleBadge(int menuItemId){
+        BadgeDrawable badgeDrawable = bottomNav.getOrCreateBadge(menuItemId);
+        badgeDrawable.setVisible(true);
+        badgeDrawable.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+        badgeDrawable.setNumber(8);
+    }
+
+    public void goneBadge(int menuItemId){
+        BadgeDrawable badgeDrawable = bottomNav.getBadge(menuItemId);
+        if (badgeDrawable != null) {
+            badgeDrawable.setVisible(false);
+        }
     }
 }

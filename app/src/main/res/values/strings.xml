@@ -24,4 +24,10 @@
     <string name="text_skip">Bỏ qua</string>
     <string name="text_register">Đăng kí</string>
     <string name="text_login">Đăng nhập</string>
+    <string name="text_home">Home</string>
+    <string name="text_bag">Giỏ hàng</string>
+    <string name="text_account">Tài khoản</string>
+    <string name="text_login_with">Đăng nhập với</string>
+    <string name="text_need_register">Bạn chưa có tài khoản?</string>
+    <string name="text_forgot_password">Quên mật khẩu?</string>
 </resources>

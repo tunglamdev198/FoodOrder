@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.intro;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.lamnt.foodorder.R;
+import com.lamnt.foodorder.common.Key;
 import com.lamnt.foodorder.view.activity.LoginActivity;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 
 import java.util.Objects;
 
+import butterknife.Action;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -60,6 +62,7 @@ public class StartLoginFragment extends BaseFragment {
     @OnClick(R.id.btn_login)
     void onLoginClicked() {
         Intent intent = new Intent(getActivity(),LoginActivity.class);
+        intent.putExtra(Key.SimpleKey.TYPE,Key.Action.LOGIN);
         startActivity(intent);
         Objects.requireNonNull(getActivity()).finish();
     }
@@ -67,6 +70,7 @@ public class StartLoginFragment extends BaseFragment {
     @OnClick(R.id.btn_register)
     void onRegisterClicked() {
         Intent intent = new Intent(getActivity(),LoginActivity.class);
+        intent.putExtra(Key.SimpleKey.TYPE,Key.Action.REGISTER);
         startActivity(intent);
         Objects.requireNonNull(getActivity()).finish();
     }

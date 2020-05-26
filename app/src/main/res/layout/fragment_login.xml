@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/demo_background"
-    tools:context=".view.fragment.LoginFragment">
+    tools:context=".view.fragment.auth.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_toStartOf="@id/btn_visible"
-                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/_8sdp"
@@ -78,19 +78,20 @@
                 android:textSize="@dimen/_11ssp"
                 tools:text="tunglamhd98@gmail.com" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/btn_visible"
                 android:textStyle="bold"
+                android:padding="@dimen/_2sdp"
                 android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_visible" />
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_show_password" />
 
         </RelativeLayout>
 
         <TextView
             android:id="@+id/btn_forgot_password"
-            android:text="Quên mật khẩu?"
+            android:text="@string/text_forgot_password"
             android:layout_marginTop="@dimen/_8sdp"
             android:textColor="@color/colorTextColorGray"
             android:layout_width="wrap_content"
@@ -101,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_btn_login"
-            android:text="Đăng nhập"
+            android:text="@string/text_login"
             android:textColor="@android:color/white"
             android:layout_marginTop="@dimen/_12sdp"/>
 
@@ -123,7 +124,7 @@
                 android:textColor="@color/colorTextColorGray"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:text="Đăng nhập với"/>
+                android:text="@string/text_login_with"/>
 
             <View
                 android:layout_gravity="center_vertical"
@@ -158,7 +159,7 @@
         android:id="@+id/txt_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bạn chưa có tài khoản?"
+        android:text="@string/text_need_register"
         android:textColor="@color/colorOrange"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

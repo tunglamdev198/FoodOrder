@@ -1,19 +1,16 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.intro;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
-
-import butterknife.BindView;
 
 /**
  * A simple {@link Fragment} subclass.

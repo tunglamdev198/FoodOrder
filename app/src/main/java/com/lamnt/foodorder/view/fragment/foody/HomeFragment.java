@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.foody;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,9 +14,9 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.lamnt.foodorder.R;
-import com.lamnt.foodorder.view.adapter.FoodsAdapter;
-import com.lamnt.foodorder.view.adapter.FoodsAdapter2;
-import com.lamnt.foodorder.view.adapter.PromotionPagerAdapter;
+import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter;
+import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter2;
+import com.lamnt.foodorder.view.adapter.pageradapter.PromotionPagerAdapter;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 
 import butterknife.BindView;
@@ -79,7 +79,7 @@ public class HomeFragment extends BaseFragment {
                 });
         tabLayoutMediator.attach();
         runnable = () -> {
-            if( mPosition >= 2){
+            if( mPosition >= 4){
                 mPosition = 0;
             }else{
                 mPosition = mPosition +1;
@@ -105,19 +105,19 @@ public class HomeFragment extends BaseFragment {
     }
 
     @OnClick(R.id.btn_food)
-    public void onBtnFoodClicked() {
+    void onBtnFoodClicked() {
     }
 
     @OnClick(R.id.btn_nearby)
-    public void onBtnNearbyClicked() {
+    void onBtnNearbyClicked() {
     }
 
     @OnClick(R.id.btn_drink)
-    public void onBtnDrinkClicked() {
+    void onBtnDrinkClicked() {
     }
 
     @OnClick(R.id.txt_filter)
-    public void onTxtFilterClicked() {
+    void onTxtFilterClicked() {
     }
 
     @Override

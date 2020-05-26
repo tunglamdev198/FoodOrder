@@ -1,13 +1,11 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.intro;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -16,7 +14,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.activity.MainActivity;
-import com.lamnt.foodorder.view.adapter.IntroPagerAdapter;
+import com.lamnt.foodorder.view.adapter.pageradapter.IntroPagerAdapter;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 
 import java.util.Objects;

@@ -88,7 +88,7 @@ public class PopupNotify extends BaseDialogFragment {
         if (type == SUCCESS){
             imgType.setAnimation(R.raw.success_animate);
             btnAction.setBackgroundColor(Objects.requireNonNull(
-                    mActivity).getResources().getColor(R.color.colorSucces));
+                    mActivity).getResources().getColor(R.color.colorActive));
         }else {
             imgType.setAnimation(R.raw.fail_animate);
             btnAction.setBackgroundColor(Objects.requireNonNull(

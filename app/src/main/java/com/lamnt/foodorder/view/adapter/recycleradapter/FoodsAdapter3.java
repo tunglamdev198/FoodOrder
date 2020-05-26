@@ -1,5 +1,6 @@
-package com.lamnt.foodorder.view.adapter;
+package com.lamnt.foodorder.view.adapter.recycleradapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +10,14 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.lamnt.foodorder.R;
+import com.lamnt.foodorder.view.common.ImageHelper;
 
-public class FoodsAdapter extends RecyclerView.Adapter<FoodsAdapter.ViewHolder> {
+public class FoodsAdapter3 extends RecyclerView.Adapter<FoodsAdapter3.ViewHolder> {
     private LayoutInflater inflater;
     private Context context;
 
-    public FoodsAdapter(Context context) {
+    public FoodsAdapter3(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -24,12 +25,14 @@ public class FoodsAdapter extends RecyclerView.Adapter<FoodsAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_restaurant_home, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_food, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(context).load(R.drawable.demo_royal_tea).placeholder(R.drawable.ic_food).into(holder.imgFood);
+        ImageHelper.loadImage((Activity) context,
+                holder.imgFood,
+               R.drawable.demo_tra_sua);
     }
 
     @Override
@@ -42,7 +45,7 @@ public class FoodsAdapter extends RecyclerView.Adapter<FoodsAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFood = itemView.findViewById(R.id.img_restaurant);
+            imgFood = itemView.findViewById(R.id.img_food);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment;
+package com.lamnt.foodorder.view.fragment.foody;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +17,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.bumptech.glide.Glide;
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.view.activity.MainActivity;
-import com.lamnt.foodorder.view.adapter.FoodsAdapter3;
+import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter3;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 import com.makeramen.roundedimageview.RoundedImageView;
 

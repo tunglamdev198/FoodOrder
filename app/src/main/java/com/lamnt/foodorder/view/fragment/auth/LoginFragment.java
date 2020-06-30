@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,27 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lamnt.foodorder.Demo;
 import com.lamnt.foodorder.R;
+import com.lamnt.foodorder.listener.OnResponseListener;
+import com.lamnt.foodorder.network.BaseObserver;
+import com.lamnt.foodorder.network.Request;
 import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.activity.MainActivity;
 import com.lamnt.foodorder.view.common.PopupNotify;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginFragment extends BaseFragment {
 
@@ -42,6 +56,8 @@ public class LoginFragment extends BaseFragment {
     TextView txtRegister;
 
     private boolean isShowPassword = false;
+    private List<String> demos = new ArrayList<>();
+    private Observer<List<String>> observer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +68,25 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void unit(View v) {
+        demos.add("Lâm");
+        demos.add("My");
+        BaseObserver<List<String>> baseObserver = new BaseObserver<>(getActivity());
+        observer = baseObserver.getObserver(
+                new OnResponseListener<List<String>>() {
+                    @Override
+                    public void returnDisposable(Disposable disposable) {
 
+                    }
+
+                    @Override
+                    public void returnResult(List<String> list) {
+                        Log.d("AAA", list.toString());
+                    }
+                });
+        Observable observable = Observable.just(demos);
+        observable.observeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
     }
 
     @Override
@@ -87,6 +121,8 @@ public class LoginFragment extends BaseFragment {
 
     @OnClick(R.id.btn_forgot_password)
     void onBtnForgotPasswordClicked() {
+        demos.add("Nam");
+        observer.onNext(demos);
     }
 
     @OnClick(R.id.btn_login)

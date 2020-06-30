@@ -1,5 +1,6 @@
 package com.lamnt.foodorder.view.fragment.foody;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,13 +14,21 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.transition.TransitionInflater;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.transition.MaterialContainerTransform;
+import com.lamnt.foodorder.Demo;
 import com.lamnt.foodorder.R;
+import com.lamnt.foodorder.listener.OnItemClickListener;
+import com.lamnt.foodorder.utils.ValidateUtil;
 import com.lamnt.foodorder.view.activity.MainActivity;
+import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter;
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter3;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 import com.makeramen.roundedimageview.RoundedImageView;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,7 +36,8 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RestaurantFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class RestaurantFragment extends BaseFragment
+        implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener<String> {
 
     @BindView(R.id.img_restaurant)
     RoundedImageView imgRestaurant;
@@ -53,10 +63,17 @@ public class RestaurantFragment extends BaseFragment implements SwipeRefreshLayo
     RecyclerView rvFoods;
 
     public RestaurantFragment() {
-        // Required empty public constructor
+
     }
 
+    public static RestaurantFragment newInstance(String transitionName) {
 
+        Bundle args = new Bundle();
+        args.putString("transitionName",transitionName);
+        RestaurantFragment fragment = new RestaurantFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,8 +86,17 @@ public class RestaurantFragment extends BaseFragment implements SwipeRefreshLayo
         Glide.with(this).load(R.drawable.demo_royal_tea).into(imgRestaurant);
         GridLayoutManager llm = new GridLayoutManager(getActivity(), 2);
         rvFoods.setLayoutManager(llm);
-        rvFoods.setAdapter(new FoodsAdapter3(getActivity()));
+        FoodsAdapter3 adapter = new FoodsAdapter3(getActivity());
+        rvFoods.setAdapter(adapter);
         MainActivity.getInstance().refreshLayout.setOnRefreshListener(this);
+        String transitionName = null;
+        if (ValidateUtil.checkNull(getArguments())) {
+            transitionName = getArguments().getString("transitionName");
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setSharedElementEnterTransition(
+                    TransitionInflater.from(getContext()).inflateTransition(R.transition.simple_fragment_transition));
+        }
     }
 
     @Override
@@ -89,15 +115,15 @@ public class RestaurantFragment extends BaseFragment implements SwipeRefreshLayo
     }
 
     @OnClick(R.id.rating_bar)
-    public void onRatingBarClicked() {
+    void onRatingBarClicked() {
     }
 
     @OnClick(R.id.btn_share)
-    public void onBtnShareClicked() {
+    void onBtnShareClicked() {
     }
 
     @OnClick(R.id.btn_favorite)
-    public void onBtnFavoriteClicked() {
+    void onBtnFavoriteClicked() {
     }
 
     @Override
@@ -110,5 +136,10 @@ public class RestaurantFragment extends BaseFragment implements SwipeRefreshLayo
     public void onRefresh() {
         new Handler().postDelayed(() ->
                 MainActivity.getInstance().refreshLayout.setRefreshing(true), 2000);
+    }
+
+    @Override
+    public void onItemClick(String object, int position, View view) {
+
     }
 }

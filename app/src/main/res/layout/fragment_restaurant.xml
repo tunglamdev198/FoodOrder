@@ -21,6 +21,7 @@
                 android:layout_height="@dimen/_156sdp"
                 android:layout_margin="@dimen/_12sdp"
                 android:scaleType="centerCrop"
+                android:transitionName="img_transition"
                 android:src="@drawable/demo_royal_tea"
                 app:riv_corner_radius="@dimen/_6sdp" />
 
@@ -40,6 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="Royal Tee"
                     android:textColor="@android:color/black"
+                    android:transitionName="title_transition"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
 

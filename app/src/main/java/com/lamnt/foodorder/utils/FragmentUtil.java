@@ -1,8 +1,9 @@
 package com.lamnt.foodorder.utils;
 
 import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 
-import androidx.annotation.AnimRes;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -102,13 +103,49 @@ public class FragmentUtil {
                             R.anim.pop_exit);
                 }
                 ft.replace(frameId, fragment, backStateName);
+
                 ft.addToBackStack(backStateName);
                 ft.commitAllowingStateLoss();
             }
         }
     }
 
-    public static void replaceFragmentAddBackstack(FragmentManager fm,
+    public static void replaceFragment(Activity activity,
+                                       @IdRes int frameId,
+                                       Fragment fragment,
+                                       boolean anim,
+                                       View viewStart,
+                                       String viewTarget) {
+        if (activity != null && !activity.isFinishing()) {
+            String backStateName = fragment.getClass().getName();
+
+            FragmentManager manager = ((AppCompatActivity) activity).getSupportFragmentManager();
+            boolean fragmentPopped = false;
+            try {
+                fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
+            } catch (IllegalStateException ignored) {
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (!fragmentPopped) {
+                FragmentTransaction ft = manager.beginTransaction();
+                if (anim){
+                    ft.setCustomAnimations(
+                            R.anim.enter,
+                            R.anim.exit,
+                            R.anim.pop_enter,
+                            R.anim.pop_exit);
+                }
+                ft.addSharedElement(viewStart, viewTarget);
+                ft.replace(frameId, fragment, backStateName);
+                ft.addToBackStack(backStateName);
+                ft.commitAllowingStateLoss();
+            }
+        }
+    }
+
+    public static void replaceFragmentAddBackStack(FragmentManager fm,
                                                    Fragment fragment) {
         fm.beginTransaction()
                 .setCustomAnimations(
@@ -121,7 +158,7 @@ public class FragmentUtil {
                 .commitAllowingStateLoss();
     }
 
-    public static void addFragmentAddBackstack(FragmentManager fm,
+    public static void addFragmentAddBackStack(FragmentManager fm,
                                                Fragment fragment) {
         fm.beginTransaction()
                 .setCustomAnimations(
@@ -134,41 +171,7 @@ public class FragmentUtil {
                 .commitAllowingStateLoss();
     }
 
-    public static void replaceFragmentAddBackstack(FragmentManager fm,
-                                                   Fragment fragment,
-                                                   @AnimRes int enter,
-                                                   @AnimRes int exit) {
-        fm.beginTransaction()
-                .setCustomAnimations(enter, exit)
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commitAllowingStateLoss();
-    }
-
-    public static void replaceFragmentAddBackstack(FragmentManager fm,
-                                                   Fragment fragment,
-                                                   @AnimRes int enter,
-                                                   @AnimRes int exit,
-                                                   @AnimRes int popEnter,
-                                                   @AnimRes int popExit) {
-        fm.beginTransaction()
-                .setCustomAnimations(enter, exit, popEnter, popExit)
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commitAllowingStateLoss();
-    }
-
-    public static void replaceFragment(FragmentManager fm,
-                                       Fragment fragment,
-                                       @AnimRes int enter,
-                                       @AnimRes int exit) {
-        fm.beginTransaction()
-                .setCustomAnimations(enter, exit)
-                .replace(R.id.container, fragment)
-                .commitAllowingStateLoss();
-    }
-
-    public static void showDialogFragment(Activity frgAct, DialogFragment fragment) {
+    public static void showDialogFragment(Context frgAct, DialogFragment fragment) {
         if (frgAct instanceof FragmentActivity) {
             FragmentActivity mFrgAct = (FragmentActivity) frgAct;
             fragment.show(mFrgAct.getSupportFragmentManager(), fragment.getClass().getName());

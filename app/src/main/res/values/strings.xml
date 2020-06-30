@@ -30,4 +30,5 @@
     <string name="text_login_with">Đăng nhập với</string>
     <string name="text_need_register">Bạn chưa có tài khoản?</string>
     <string name="text_forgot_password">Quên mật khẩu?</string>
+    <string name="text_processing">Đang xử lí</string>
 </resources>

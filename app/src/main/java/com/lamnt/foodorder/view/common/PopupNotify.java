@@ -26,7 +26,7 @@ public class PopupNotify extends BaseDialogFragment {
     public static final int SUCCESS = 0;
     public static final int ERROR = 1;
     @BindView(R.id.img_type)
-    LottieAnimationView imgType;
+    ImageView imgType;
     @BindView(R.id.txt_message)
     TextView txtMessage;
     @BindView(R.id.btn_action)
@@ -86,11 +86,10 @@ public class PopupNotify extends BaseDialogFragment {
         txtMessage.setText(mMessage);
         btnAction.setText(mButtonAction);
         if (type == SUCCESS){
-            imgType.setAnimation(R.raw.success_animate);
+            ImageHelper.loadGifImage(getActivity(), imgType, R.raw.ic_gif_success);
             btnAction.setBackgroundColor(Objects.requireNonNull(
                     mActivity).getResources().getColor(R.color.colorActive));
         }else {
-            imgType.setAnimation(R.raw.fail_animate);
             btnAction.setBackgroundColor(Objects.requireNonNull(
                     mActivity).getResources().getColor(R.color.colorError));
         }

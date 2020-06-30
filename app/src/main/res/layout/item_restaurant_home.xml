@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/container"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_btn_white_not_stroke">
 
@@ -16,6 +17,7 @@
         android:layout_marginBottom="@dimen/_8sdp"
         android:background="@drawable/bg_image_corner"
         android:scaleType="centerCrop"
+        android:transitionName="img_transition"
         android:src="@drawable/demo_royal_tea" />
 
     <LinearLayout
@@ -32,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Royal Tee"
+            android:transitionName="title_transition"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_11ssp"
             android:textStyle="bold" />

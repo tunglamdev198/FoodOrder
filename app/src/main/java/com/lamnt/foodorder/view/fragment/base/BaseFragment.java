@@ -13,11 +13,13 @@ import androidx.fragment.app.Fragment;
 import com.lamnt.foodorder.view.activity.MainActivity;
 
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
 
 public abstract class BaseFragment extends Fragment {
     protected @LayoutRes
     int layoutRes;
     protected Activity mActivity;
+    protected CompositeDisposable mCompositeDisposable;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public abstract class BaseFragment extends Fragment {
         mActivity = getActivity();
         View mView = inflater.inflate(layoutRes, container, false);
         ButterKnife.bind(this, mView);
+        mCompositeDisposable = new CompositeDisposable();
         unit(mView);
         return mView;
     }
@@ -72,5 +75,11 @@ public abstract class BaseFragment extends Fragment {
                 MainActivity.getInstance().bottomNav.setVisibility(View.GONE);
             }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mCompositeDisposable.clear();
     }
 }

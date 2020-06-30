@@ -7,13 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.android.material.transition.MaterialContainerTransform;
 import com.lamnt.foodorder.R;
+import com.lamnt.foodorder.listener.OnItemClickListener;
+import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter;
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter2;
 import com.lamnt.foodorder.view.adapter.pageradapter.PromotionPagerAdapter;
@@ -23,7 +27,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 // TODO: 4/4/20
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements OnItemClickListener<String> {
 
     @BindView(R.id.vp_promotions)
     ViewPager2 vpPromotions;
@@ -65,7 +69,8 @@ public class HomeFragment extends BaseFragment {
                 false);
         rvRecentRestaurant.setLayoutManager(llm);
         rvRecentRestaurant.setAdapter(new FoodsAdapter2(getActivity()));
-        rvRestaurant.setAdapter(new FoodsAdapter(getActivity()));
+        FoodsAdapter adapter = new FoodsAdapter(mActivity,this::onItemClick);
+        rvRestaurant.setAdapter(adapter);
     }
 
     private void initPromotions() {
@@ -132,5 +137,17 @@ public class HomeFragment extends BaseFragment {
         if (handler!= null) {
             handler.removeCallbacks(runnable);
         }
+    }
+
+    @Override
+    public void onItemClick(String object, int position, View view) {
+        RestaurantFragment fragment = RestaurantFragment.newInstance(ViewCompat.getTransitionName(view));
+        FragmentUtil.replaceFragment(
+                mActivity,
+                R.id.container,
+                fragment,
+                false,
+                view.findViewById(R.id.img_restaurant),
+                "img_transition");
     }
 }

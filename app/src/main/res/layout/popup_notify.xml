@@ -33,14 +33,11 @@
                     android:layout_marginEnd="@dimen/_12sdp"
                     android:orientation="vertical">
 
-                    <com.airbnb.lottie.LottieAnimationView
+                    <ImageView
                         android:id="@+id/img_type"
-                        android:layout_width="@dimen/_56sdp"
-                        android:layout_height="@dimen/_56sdp"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_36sdp"
                         android:layout_gravity="center_horizontal"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="false"
-                        app:lottie_rawRes="@raw/success_animate"
                         tools:ignore="ContentDescription" />
 
                     <TextView

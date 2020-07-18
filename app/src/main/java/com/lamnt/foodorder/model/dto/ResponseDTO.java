@@ -3,11 +3,11 @@ package com.lamnt.foodorder.model.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class ResponseDTO {
-    @Expose
-    @SerializedName("code")
+public class ResponseDTO <E> implements Serializable{
     private String code;
 
     @Expose
@@ -19,8 +19,12 @@ public class ResponseDTO {
     private String success;
 
     @Expose
+    @SerializedName("status")
+    private String status;
+
+    @Expose
     @SerializedName("data")
-    private List<DemoEmployee> employee;
+    private E data;
 
     public String getCode() {
         return code;
@@ -46,11 +50,19 @@ public class ResponseDTO {
         this.success = success;
     }
 
-    public List<DemoEmployee> getEmployee() {
-        return employee;
+    public String getStatus() {
+        return status;
     }
 
-    public void setEmployee(List<DemoEmployee> employee) {
-        this.employee = employee;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public E getData() {
+        return data;
+    }
+
+    public void setData(E data) {
+        this.data = data;
     }
 }

@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.listener.OnResponseListener;
 import com.lamnt.foodorder.model.dto.DemoEmployee;
+import com.lamnt.foodorder.model.dto.ResponseDTO;
 import com.lamnt.foodorder.network.BaseObserver;
+import com.lamnt.foodorder.network.BaseService;
 import com.lamnt.foodorder.network.Request;
 import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.activity.MainActivity;
@@ -28,7 +31,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginFragment extends BaseFragment {
 
@@ -64,9 +70,9 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void unit(View v) {
-        BaseObserver<List<DemoEmployee>> baseObserver1 = new BaseObserver<>(mActivity);
-        Observable<List<DemoEmployee>> observable = Request.getService().getEmployee();
-        baseObserver1.getObserver(observable, new OnResponseListener<List<DemoEmployee>>() {
+        BaseObserver baseObserver1 =  BaseObserver.build(mActivity);
+
+        baseObserver1.getMapping(new OnResponseListener<List<DemoEmployee>>() {
             @Override
             public void returnDisposable(Disposable disposable) {
 

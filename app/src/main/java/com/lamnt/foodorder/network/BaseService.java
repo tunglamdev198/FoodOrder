@@ -17,27 +17,23 @@ import retrofit2.http.Path;
 public interface BaseService{
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("{endpoint}")
-    <BODY extends BaseRequestBody, RESPONSE>
-    Observable<RESPONSE> postMapping(@Path("endpoint") String endpoint,
-                              @Body BODY baseRequestBody);
+    Observable<ResponseDTO> postMapping(@Path("endpoint") String endpoint,
+                                        @Body ResponseDTO baseRequestBody);
 
 //    @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("{endpoint}")
-    <E>
-    Observable<E> getMapping(@Path("endpoint") String endpoint);
+    Observable<ResponseDTO> getMapping(@Path("endpoint") String endpoint);
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @PUT("{endpoint}")
-    <BODY extends BaseRequestBody,  RESPONSE>
-    Observable<RESPONSE> putMapping(@Path("endpoint") String endpoint,
-                             @Body BODY baseRequestBody);
+    Observable<ResponseDTO> putMapping(@Path("endpoint") String endpoint,
+                             @Body ResponseDTO baseRequestBody);
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @DELETE("{endpoint}")
-    <RESPONSE>
-    Observable<RESPONSE> deleteMapping(@Path("endpoint") String endpoint);
+    Observable<ResponseDTO> deleteMapping(@Path("endpoint") String endpoint);
 
     @GET("employees")
-    Observable<List<DemoEmployee>> getEmployee();
+    Observable<ResponseDTO<List<DemoEmployee>>> getEmployee();
 
 }

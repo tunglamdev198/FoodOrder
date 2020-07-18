@@ -16,14 +16,14 @@ import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
 
 public abstract class BaseFragment extends Fragment {
-    protected @LayoutRes
+    private  @LayoutRes
     int layoutRes;
     protected Activity mActivity;
-    protected CompositeDisposable mCompositeDisposable;
+//    protected CompositeDisposable mCompositeDisposable;
+    private View mView;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
         mActivity = getActivity();
     }
@@ -34,12 +34,17 @@ public abstract class BaseFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         mActivity = getActivity();
-        View mView = inflater.inflate(layoutRes, container, false);
-        ButterKnife.bind(this, mView);
-        mCompositeDisposable = new CompositeDisposable();
-        unit(mView);
+        layoutRes = getLayoutRes();
+        if (mView == null){
+            mView = inflater.inflate(layoutRes, container, false);
+            ButterKnife.bind(this, mView);
+//            mCompositeDisposable = new CompositeDisposable();
+            unit(mView);
+        }
         return mView;
     }
+
+    public abstract int getLayoutRes();
 
     protected abstract void unit(View v);
 
@@ -80,6 +85,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mCompositeDisposable.clear();
+//        if (mCompositeDisposable.size()>0){
+//            mCompositeDisposable.clear();
+//        }
     }
 }

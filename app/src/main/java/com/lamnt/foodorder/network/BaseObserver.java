@@ -1,15 +1,18 @@
 package com.lamnt.foodorder.network;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.lamnt.foodorder.listener.OnResponseListener;
 import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.fragment.dialog.ProcessDialog;
 
-import io.reactivex.Observer;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
-public class BaseObserver<E extends Object> {
+public class BaseObserver<E> {
     private Context context;
     private ProcessDialog processDialog;
 
@@ -18,33 +21,21 @@ public class BaseObserver<E extends Object> {
         processDialog = new ProcessDialog();
     }
 
-    public Observer<E> getObserver(OnResponseListener<E> onResponseListener){
+    @SuppressLint("CheckResult")
+    public void getObserver(Observable<E> baseObservable,
+                            OnResponseListener<E> onResponseListener) {
         showProcess();
-        return new Observer<E>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                onResponseListener.returnDisposable(d);
-            }
-
-            @Override
-            public void onNext(E e) {
-                onResponseListener.returnResult(e);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                processDialog.dismiss();
-            }
-
-            @Override
-            public void onComplete() {
-                processDialog.dismiss();
-            }
-        };
+        Disposable disposable = baseObservable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(onResponseListener::returnResult,
+                        throwable -> processDialog.dismiss(),
+                        () -> processDialog.dismiss());
+        onResponseListener.returnDisposable(disposable);
     }
 
-    private void showProcess(){
-        FragmentUtil.showDialogFragment(context,processDialog);
+    private void showProcess() {
+        FragmentUtil.showDialogFragment(context, processDialog);
     }
 
 }

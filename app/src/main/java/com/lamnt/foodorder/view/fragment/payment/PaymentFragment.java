@@ -1,12 +1,6 @@
 package com.lamnt.foodorder.view.fragment.payment;
 
-import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
@@ -17,11 +11,9 @@ public class PaymentFragment extends BaseFragment {
     }
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_payment;
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_payment;
     }
 
     @Override

@@ -1,16 +1,16 @@
 package com.lamnt.foodorder.network;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
-import java.util.concurrent.TimeUnit;
+import com.lamnt.foodorder.model.dto.ResponseDTO;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.lamnt.foodorder.common.Constants.BASE_URL;
 
-public class Request {
+public class Request<E extends ResponseDTO> {
     private static Request instance;
     private static BaseService service;
 
@@ -20,13 +20,11 @@ public class Request {
         }
         return service;
     }
-
     private Request() {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(2, TimeUnit.SECONDS)
-                .writeTimeout(2, TimeUnit.SECONDS)
-                .retryOnConnectionFailure(false)
+                .addInterceptor(interceptor)
                 .build();
         service = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

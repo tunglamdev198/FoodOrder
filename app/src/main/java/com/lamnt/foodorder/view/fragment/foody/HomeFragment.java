@@ -2,6 +2,7 @@ package com.lamnt.foodorder.view.fragment.foody;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,9 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.android.material.transition.MaterialContainerTransform;
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.listener.OnItemClickListener;
+import com.lamnt.foodorder.network.Request;
 import com.lamnt.foodorder.utils.FragmentUtil;
+import com.lamnt.foodorder.utils.StringUtil;
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter;
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter2;
 import com.lamnt.foodorder.view.adapter.pageradapter.PromotionPagerAdapter;
@@ -49,12 +52,9 @@ public class HomeFragment extends BaseFragment implements OnItemClickListener<St
     public HomeFragment() {
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_home;
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_home;
     }
 
     @Override

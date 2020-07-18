@@ -64,11 +64,10 @@ public class OrderFragment extends BaseFragment {
     public OrderFragment() {
     }
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_order;
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_order;
     }
 
     @Override

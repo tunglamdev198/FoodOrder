@@ -74,11 +74,10 @@ public class RestaurantFragment extends BaseFragment
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_restaurant;
-       return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_restaurant;
     }
 
     @Override

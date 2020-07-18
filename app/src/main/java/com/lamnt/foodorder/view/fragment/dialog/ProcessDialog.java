@@ -18,6 +18,7 @@ public class ProcessDialog extends BaseDialogFragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         layoutRes = R.layout.popup_process;
+        setCancelable(false);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

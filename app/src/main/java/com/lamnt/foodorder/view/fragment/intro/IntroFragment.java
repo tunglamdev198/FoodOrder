@@ -1,12 +1,8 @@
 package com.lamnt.foodorder.view.fragment.intro;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -34,11 +30,9 @@ public class IntroFragment extends BaseFragment implements IntroPagerAdapter.OnT
     TextView btnSkip;
     private int mTabSelected = 0;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_intro_container;
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_intro_container;
     }
 
     @Override

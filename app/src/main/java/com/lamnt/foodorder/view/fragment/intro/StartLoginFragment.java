@@ -27,11 +27,9 @@ public class StartLoginFragment extends BaseFragment {
     @BindView(R.id.btn_register)
     TextView btnRegister;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_start_login;
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_start_login;
     }
 
     @Override

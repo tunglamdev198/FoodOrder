@@ -1,18 +1,13 @@
 package com.lamnt.foodorder.view.fragment.intro;
 
-import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.bumptech.glide.Glide;
 import com.lamnt.foodorder.R;
 import com.lamnt.foodorder.utils.FragmentUtil;
-import com.lamnt.foodorder.view.common.ImageHelper;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
 
 import butterknife.BindView;
@@ -25,10 +20,8 @@ public class SplashFragment extends BaseFragment {
     LottieAnimationView imgType;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        layoutRes = R.layout.fragment_splash;
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public int getLayoutRes() {
+        return R.layout.fragment_splash;
     }
 
     @Override

@@ -10,10 +10,8 @@ import com.lamnt.foodorder.utils.FragmentUtil;
 import com.lamnt.foodorder.view.fragment.dialog.ProcessDialog;
 
 import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class BaseObserver {
@@ -25,36 +23,59 @@ public class BaseObserver {
         processDialog = new ProcessDialog();
     }
 
-    public static BaseObserver build(Context context){
-        BaseObserver baseObserver = new BaseObserver(context);
-        return baseObserver;
+    public static BaseObserver build(Context context) {
+        return new BaseObserver(context);
     }
 
 
-
     @SuppressLint("CheckResult")
-    private  <BODY, OUTPUT extends ResponseDTO<BODY>> void getObserver(
-                            Observable<OUTPUT> observable,
-                            OnResponseListener<BODY> onResponseListener) {
-
+    private <DATA, OUTPUT extends ResponseDTO<DATA>>
+    void getObserver(
+            Observable<OUTPUT> observable,
+            OnResponseListener<DATA> onResponseListener) {
         showProcess();
-        Disposable disposable = observable.subscribeOn(Schedulers.io())
+        Disposable disposable = observable
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(output -> onResponseListener.returnResult(output.getData()),
                         throwable -> {
                             processDialog.dismiss();
                             Toast.makeText(context, throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                        }, () -> processDialog.dismiss());
+                        },
+                        () -> processDialog.dismiss());
         onResponseListener.returnDisposable(disposable);
     }
 
-    private BaseService getService(){
+    private BaseService getService() {
         return Request.getIService();
     }
 
-    public <BODY, OUTPUT extends ResponseDTO<BODY>> void getMapping(OnResponseListener<BODY> onResponseListener){
-        Observable observable = getService().getMapping("employees");
-        getObserver(observable,onResponseListener);
+    public <DATA, OUTPUT extends ResponseDTO<DATA>> void getMapping(String endpoint,
+                                                                    OnResponseListener<DATA> onResponseListener) {
+        Observable observable = getService().getMapping(endpoint);
+        getObserver(observable, onResponseListener);
+    }
+
+    public <DATA, OUTPUT extends ResponseDTO<DATA>> void deleteMapping(String endpoint,
+                                                                       OnResponseListener<DATA> onResponseListener) {
+        Observable observable = getService().deleteMapping(endpoint);
+        getObserver(observable, onResponseListener);
+    }
+
+    public <DATA, OUTPUT extends ResponseDTO<DATA>, BODY extends BaseRequestBody>
+    void postMapping(String endpoint,
+                     BODY body,
+                     OnResponseListener<DATA> onResponseListener) {
+        Observable observable = getService().postMapping(endpoint, body);
+        getObserver(observable, onResponseListener);
+    }
+
+    public <DATA, OUTPUT extends ResponseDTO<DATA>, BODY extends BaseRequestBody>
+    void putMapping(String endpoint,
+                    BODY body,
+                    OnResponseListener<DATA> onResponseListener) {
+        Observable observable = getService().putMapping(endpoint, body);
+        getObserver(observable, onResponseListener);
     }
 
     private void showProcess() {

@@ -3,7 +3,6 @@ package com.lamnt.foodorder.view.fragment.auth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,31 +12,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.lamnt.foodorder.R;
-import com.lamnt.foodorder.listener.OnResponseListener;
-import com.lamnt.foodorder.model.dto.DemoEmployee;
-import com.lamnt.foodorder.model.dto.ResponseDTO;
-import com.lamnt.foodorder.network.BaseObserver;
-import com.lamnt.foodorder.network.BaseService;
-import com.lamnt.foodorder.network.Request;
 import com.lamnt.foodorder.utils.FragmentUtil;
-import com.lamnt.foodorder.view.activity.MainActivity;
-import com.lamnt.foodorder.view.common.PopupNotify;
 import com.lamnt.foodorder.view.fragment.base.BaseFragment;
+import com.lamnt.foodorder.view.fragment.dialog.OTPConfirmDialogFragment;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class LoginFragment extends BaseFragment {
-
     @BindView(R.id.edt_account)
     EditText edtAccount;
     @BindView(R.id.edt_password)
@@ -57,6 +56,8 @@ public class LoginFragment extends BaseFragment {
 
     private boolean isShowPassword = false;
     private List<String> demos = new ArrayList<>();
+    private CallbackManager mCallbackManager;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,19 +71,6 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void unit(View v) {
-        BaseObserver baseObserver1 =  BaseObserver.build(mActivity);
-
-        baseObserver1.getMapping(new OnResponseListener<List<DemoEmployee>>() {
-            @Override
-            public void returnDisposable(Disposable disposable) {
-
-            }
-
-            @Override
-            public void returnResult(List<DemoEmployee> demoEmployees) {
-                Log.d("AAA", demoEmployees.toString());
-            }
-        });
 
     }
 
@@ -120,22 +108,85 @@ public class LoginFragment extends BaseFragment {
     void onBtnForgotPasswordClicked() {
     }
 
+    private void fbLogin() {
+        mCallbackManager = CallbackManager.Factory.create();
+
+        // Set permissions
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "user_photos", "public_profile"));
+
+        LoginManager.getInstance().registerCallback(mCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+                        System.out.println("Success");
+                        GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(JSONObject json, GraphResponse response) {
+                                        if (response.getError() != null) {
+                                            // handle error
+                                            System.out.println("ERROR");
+                                        } else {
+                                            System.out.println("Success");
+                                            try {
+
+                                                String jsonresult = String.valueOf(json);
+                                                System.out.println("JSON Result" + jsonresult);
+
+                                                String str_email = json.getString("email");
+                                                String str_id = json.getString("id");
+                                                String str_firstname = json.getString("first_name");
+                                                String str_lastname = json.getString("last_name");
+                                                Toast.makeText(mActivity, "email : " + str_email + " , name : " + str_firstname + " " + str_lastname, Toast.LENGTH_SHORT).show();
+
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+
+                                }).executeAsync();
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+
+                    }
+                });
+    }
+
     @OnClick(R.id.btn_login)
     void onBtnLoginClicked() {
         FragmentUtil.showDialogFragment(getActivity(),
-                PopupNotify.newInstance("Đăng kí thông tin khách hàng thành công\n Vui lòng đăng nhập!",
-                        "Đăng nhập",
-                        PopupNotify.SUCCESS,
+                OTPConfirmDialogFragment.newInstance("0337539494",
                         () -> {
-                            startActivity(new Intent(getActivity(), MainActivity.class));
+
                         }));
     }
 
     @OnClick(R.id.btn_login_facebook)
     void onBtnLoginFacebookClicked() {
+        fbLogin();
     }
 
     @OnClick(R.id.txt_register)
     void onTxtRegisterClicked() {
+        FragmentUtil.replaceFragment(mActivity,
+                R.id.login_container,
+                new RegisterFragment(),
+                true);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

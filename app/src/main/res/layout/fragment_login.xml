@@ -16,12 +16,13 @@
 
         <ImageView
             android:layout_marginBottom="@dimen/_8sdp"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_120sdp"
-            android:src="@drawable/ic_lam_food"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/ic_food_delivery"
             android:layout_gravity="center_horizontal"/>
 
         <LinearLayout
+            android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_edt_login"

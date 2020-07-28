@@ -34,6 +34,7 @@ public class StartLoginFragment extends BaseFragment {
 
     @Override
     protected void unit(View v) {
+        btnRegister.setVisibility(View.GONE);
         Objects.requireNonNull(getActivity())
                 .getSupportFragmentManager()
                 .beginTransaction().replace(

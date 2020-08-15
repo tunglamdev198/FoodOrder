@@ -43,4 +43,7 @@
     <string name="text_input_otp">Nhập mã OTP</string>
     <string name="text_accept_term">Đồng ý với các điều khoản dịch vụ?</string>
     <string name="text_hint_input_search">Nhập tên quán, cửa hàng, địa điểm.....</string>
+    <string name="text_recent_search">Tìm kiếm gần đây</string>
+    <string name="text_search_result">Kết quả tìm kiếm</string>
+    <string name="text_is_open">Đang mở</string>
 </resources>

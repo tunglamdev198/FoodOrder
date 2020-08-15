@@ -8,8 +8,8 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/img_restaurant"
-        android:layout_width="@dimen/_60sdp"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
         android:src="@drawable/demo_tra_sua"
         app:riv_corner_radius="@dimen/_20sdp" />
 

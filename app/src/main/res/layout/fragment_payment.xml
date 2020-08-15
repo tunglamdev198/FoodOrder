@@ -118,12 +118,12 @@
 
                 <RadioButton
                     android:id="@+id/rd_card"
-                    android:layout_width="@dimen/_36sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/_36sdp" />
 
                 <RadioButton
                     android:id="@+id/rd_cast"
-                    android:layout_width="@dimen/_36sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/_36sdp"
                     android:checked="true"
                     android:gravity="center" />
@@ -142,7 +142,8 @@
         android:layout_marginBottom="@dimen/_16sdp"
         android:background="@drawable/bg_btn_green"
         android:gravity="center"
-        android:padding="@dimen/_4sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
         android:text="@string/text_confirm_payment"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_12ssp"

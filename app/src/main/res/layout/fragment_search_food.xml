@@ -51,6 +51,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ln_recent_search"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +59,7 @@
         <TextView
             android:textSize="@dimen/_12ssp"
             android:textColor="@android:color/black"
-            android:text="Tìm kiếm gần đây"
+            android:text="@string/text_recent_search"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -70,5 +71,28 @@
             tools:itemCount="1"
             tools:listitem="@layout/item_recent_food_search"
             android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_search"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            android:text="@string/text_search_result"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_restaurant_home" />
     </LinearLayout>
 </LinearLayout>

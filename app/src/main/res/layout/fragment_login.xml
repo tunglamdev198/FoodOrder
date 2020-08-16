@@ -37,7 +37,7 @@
 
             <EditText
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:id="@+id/edt_account"
+                android:id="@+id/edtAccount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
@@ -58,7 +58,7 @@
             android:background="@drawable/bg_edt_login">
 
             <ImageView
-                android:id="@+id/img_password"
+                android:id="@+id/imgPassword"
                 android:layout_width="@dimen/_16sdp"
                 android:layout_height="@dimen/_16sdp"
                 android:layout_marginStart="@dimen/_8sdp"
@@ -66,14 +66,14 @@
                 android:src="@drawable/icon_password" />
 
             <EditText
-                android:id="@+id/edt_password"
+                android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_toStartOf="@id/btn_visible"
-                android:layout_toEndOf="@+id/img_password"
+                android:layout_toStartOf="@id/btnVisible"
+                android:layout_toEndOf="@+id/imgPassword"
                 android:background="@null"
                 android:hint="@string/text_password"
                 android:gravity="center_vertical"
@@ -83,7 +83,7 @@
                 tools:text="tunglamhd98@gmail.com" />
 
             <ImageView
-                android:id="@+id/btn_visible"
+                android:id="@+id/btnVisible"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_alignParentEnd="true"
@@ -96,7 +96,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/btn_forgot_password"
+            android:id="@+id/btnForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
@@ -104,13 +104,15 @@
             android:textColor="@color/colorTextColorGray" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"
             android:background="@drawable/bg_btn_login"
             android:text="@string/text_login"
-            android:textColor="@android:color/white" />
+            android:onClick="onBtnLoginClicked"
+            android:textColor="@android:color/white"
+            tools:ignore="OnClick" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -149,27 +151,33 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/btn_login_facebook"
+                android:id="@+id/btnLoginFacebook"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
-                android:src="@drawable/ic_facebook" />
+                android:onClick="onBtnLoginFacebookClicked"
+                android:src="@drawable/ic_facebook"
+                tools:ignore="OnClick" />
 
             <ImageView
-                android:id="@+id/btn_login_google"
+                android:id="@+id/btnLoginGoogle"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/ic_google" />
+                android:onClick="onBtnLoginGoogleClicked"
+                android:src="@drawable/ic_google"
+                tools:ignore="OnClick" />
         </LinearLayout>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txt_register"
+        android:id="@+id/txtRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_28sdp"
         android:text="@string/text_need_register"
-        android:textColor="@color/colorOrange" />
+        android:onClick="onTxtRegisterClicked"
+        android:textColor="@color/colorOrange"
+        tools:ignore="OnClick" />
 </RelativeLayout>

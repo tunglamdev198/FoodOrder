@@ -8,16 +8,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Request private constructor() {
-    private val instance: Request? = null
-    private val service: BaseService
 
     companion object {
+        private var instance: Request? = null
+        private lateinit var service: BaseService
         @JvmStatic
-        val iService: BaseService
-            get() {
-                val instance = Request()
-                return instance.service
+        fun getService() : BaseService{
+            if (instance == null){
+                instance = Request()
             }
+            return service
+        }
     }
 
     init {

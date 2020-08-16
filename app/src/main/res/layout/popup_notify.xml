@@ -34,14 +34,14 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_type"
+                        android:id="@+id/imgType"
                         android:layout_width="@dimen/_36sdp"
                         android:layout_height="@dimen/_36sdp"
                         android:layout_gravity="center_horizontal"
                         tools:ignore="ContentDescription" />
 
                     <TextView
-                        android:id="@+id/txt_message"
+                        android:id="@+id/txtMessage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -52,7 +52,7 @@
                         tools:text="Đăng kí thông tin khách hàng thành công\n Vui lòng đăng nhập!" />
 
                     <Button
-                        android:id="@+id/btn_action"
+                        android:id="@+id/btnAction"
                         style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/btn_close"
+            android:id="@+id/btnClose"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_gravity="end"

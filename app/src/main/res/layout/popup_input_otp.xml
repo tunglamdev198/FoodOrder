@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/btn_close"
+                android:id="@+id/btnClose"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_centerVertical="true"
@@ -38,7 +38,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_otp_confirm_des"
+            android:id="@+id/txtOtpConfirmDes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -48,7 +48,7 @@
             android:textSize="@dimen/_11ssp" />
 
         <com.chaos.view.PinView
-            android:id="@+id/pv_otp"
+            android:id="@+id/pvOtp"
             style="@style/PinWidget.PinView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             app:viewType="rectangle" />
 
         <TextView
-            android:id="@+id/btn_resend"
+            android:id="@+id/btnResend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -81,7 +81,7 @@
             android:textSize="@dimen/_11ssp" />
 
         <Button
-            android:id="@+id/btn_done"
+            android:id="@+id/btnDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"

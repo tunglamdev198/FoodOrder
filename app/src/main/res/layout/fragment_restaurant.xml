@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/img_restaurant"
+                android:id="@+id/imgRestaurant"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_156sdp"
                 android:layout_margin="@dimen/_12sdp"
@@ -32,11 +32,11 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
-                android:layout_below="@+id/img_restaurant"
+                android:layout_below="@+id/imgRestaurant"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_name"
+                    android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Royal Tee"
@@ -46,7 +46,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txt_category"
+                    android:id="@+id/txtCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -67,7 +67,7 @@
                         android:src="@drawable/ic_location" />
 
                     <TextView
-                        android:id="@+id/txt_location"
+                        android:id="@+id/txtLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="316 Trần Cung, Cổ Nhuế, Hà Nội"
@@ -76,7 +76,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/txt_description"
+                    android:id="@+id/txtDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rất nhiều món ngon đang chờ các bạn đặt hàng"
@@ -100,7 +100,7 @@
                         android:visibility="gone"
                         android:layout_centerVertical="true"/>
                     <RatingBar
-                        android:id="@+id/rating_bar"
+                        android:id="@+id/ratingBar"
                         android:rating="4.5"
                         android:layout_toEndOf="@+id/txt_rating"
                         android:layout_centerVertical="true"
@@ -116,7 +116,7 @@
                         android:orientation="horizontal">
 
                         <ImageButton
-                            android:id="@+id/btn_share"
+                            android:id="@+id/btnShare"
                             android:src="@drawable/ic_share"
                             android:background="@drawable/bg_circle_button"
                             android:layout_marginEnd="@dimen/_12sdp"
@@ -125,7 +125,7 @@
                             android:layout_height="@dimen/_28sdp"/>
 
                         <ImageButton
-                            android:id="@+id/btn_favorite"
+                            android:id="@+id/btnFavorite"
                             android:src="@drawable/ic_star"
                             android:background="@drawable/bg_circle_button"
                             android:layout_gravity="center"
@@ -138,7 +138,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_below="@+id/img_restaurant"
+                android:layout_below="@+id/imgRestaurant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -148,7 +148,7 @@
                 android:layout_marginEnd="@dimen/_12sdp">
 
                 <TextView
-                    android:id="@+id/txt_state"
+                    android:id="@+id/txtState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đang mở"
@@ -168,7 +168,7 @@
             android:layout_marginStart="@dimen/_12sdp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_foods"
+            android:id="@+id/rvFoods"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

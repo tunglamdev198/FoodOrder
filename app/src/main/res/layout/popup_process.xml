@@ -16,6 +16,7 @@
         android:progressBackgroundTint="@color/colorPriceBlue" />
 
     <TextView
+        android:id="@+id/txtMessage"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_gravity="center_vertical"
         android:layout_width="wrap_content"

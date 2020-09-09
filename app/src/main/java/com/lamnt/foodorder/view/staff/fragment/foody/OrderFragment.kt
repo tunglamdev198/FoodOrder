@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment.foody
+package com.lamnt.foodorder.view.staff.fragment.foody
 
 import android.view.View
 import com.lamnt.foodorder.R
@@ -8,8 +8,8 @@ import com.lamnt.foodorder.view.adapter.recycleradapter.OrdersAdapter
 import com.lamnt.foodorder.view.common.PopupNotify
 import com.lamnt.foodorder.view.common.PopupNotify.Companion.newInstance
 import com.lamnt.foodorder.view.common.PopupNotify.OnButtonClickListener
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
-import com.lamnt.foodorder.view.fragment.payment.PaymentFragment
+import com.lamnt.foodorder.view.base.BaseFragment
+import com.lamnt.foodorder.view.staff.fragment.payment.PaymentFragment
 import kotlinx.android.synthetic.main.fragment_order.*
 import java.util.*
 

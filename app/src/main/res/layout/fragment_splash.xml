@@ -8,7 +8,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     android:animateLayoutChanges="true"
-    tools:context=".view.fragment.intro.SplashFragment">
+    tools:context=".view.staff.fragment.intro.SplashFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <com.airbnb.lottie.LottieAnimationView

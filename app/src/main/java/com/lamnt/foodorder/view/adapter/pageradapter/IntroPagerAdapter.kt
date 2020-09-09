@@ -3,7 +3,7 @@ package com.lamnt.foodorder.view.adapter.pageradapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.lamnt.foodorder.view.fragment.intro.IntroItemFragment
+import com.lamnt.foodorder.view.staff.fragment.intro.IntroItemFragment
 
 class IntroPagerAdapter(fragmentActivity: FragmentActivity,
                         private val onTabSelected: OnTabSelected) : FragmentStateAdapter(fragmentActivity) {

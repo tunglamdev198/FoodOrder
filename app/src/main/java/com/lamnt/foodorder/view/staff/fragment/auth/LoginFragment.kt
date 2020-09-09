@@ -1,7 +1,8 @@
-package com.lamnt.foodorder.view.fragment.auth
+package com.lamnt.foodorder.view.staff.fragment.auth
 
 import android.content.Intent
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import butterknife.OnClick
@@ -11,18 +12,21 @@ import com.facebook.FacebookException
 import com.facebook.GraphRequest
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.lamnt.foodorder.Demo
 import com.lamnt.foodorder.R
+import com.lamnt.foodorder.listener.OnResponseListener
+import com.lamnt.foodorder.model.dto.DataDTO
 import com.lamnt.foodorder.network.BaseObserver.Companion.build
 import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
 import com.lamnt.foodorder.utils.FragmentUtil.showDialogFragment
-import com.lamnt.foodorder.view.activity.MainActivity
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
-import com.lamnt.foodorder.view.fragment.dialog.OTPConfirmDialogFragment
+import com.lamnt.foodorder.view.staff.activity.MainActivity
+import com.lamnt.foodorder.view.base.BaseFragment
+import com.lamnt.foodorder.view.staff.fragment.dialog.OTPConfirmDialogFragment
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.json.JSONException
 import java.util.*
+import kotlin.collections.ArrayList
 
 class LoginFragment : BaseFragment() {
     private var isShowPassword = false
@@ -54,18 +58,16 @@ class LoginFragment : BaseFragment() {
 
     override fun unit() {
         mCompositeDisposable = CompositeDisposable()
-        val baseObserver = build<List<Demo>>(requireActivity())
-//        baseObserver.getMapping("", object : OnResponseListener<List<Demo>> {
-//            override fun returnDisposable(disposable: Disposable) {
-//                mCompositeDisposable?.add(disposable)
-//            }
-//            override fun returnResult(demo: List<Demo>) {
-//                Log.d(TAG, "returnResult: ")
-//            }
-//            override fun returnError(message: String) {}
-//        })
-    }
-    fun registerListener() {
+        val baseObserver = activity?.let {build(it) }
+        baseObserver?.getMapping("employees", object : OnResponseListener {
+            override fun returnDisposable(disposable: Disposable?) {
+                disposable?.let { mCompositeDisposable?.add(it) }
+            }
+            override fun returnResult(data: DataDTO?) {
+                Log.d(TAG, "returnResult: ${data?.employee.toString()}")
+            }
+            override fun returnError(message: String?) {}
+        })
 
     }
 
@@ -136,13 +138,14 @@ class LoginFragment : BaseFragment() {
     @OnClick(R.id.btnLogin)
     fun onBtnLoginClicked() {
         showDialogFragment(activity,
-                OTPConfirmDialogFragment.newInstance("0337539494",object : OTPConfirmDialogFragment.OnConfirmOTPDone{
+                OTPConfirmDialogFragment.newInstance(
+                    "0337539494",
+                    object : OTPConfirmDialogFragment.OnConfirmOTPDone{
                     override fun onDone() {
                         val intent = Intent(activity, MainActivity::class.java)
                         startActivity(intent)
                         activity!!.finish()
                     }
-
                 }))
     }
 

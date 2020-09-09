@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".view.activity.SplashActivity">
+        <activity android:name="com.lamnt.foodorder.view.staff.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,10 +23,10 @@
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name=".view.activity.MainActivity"/>
+            android:name="com.lamnt.foodorder.view.staff.activity.MainActivity"/>
         <activity
             android:screenOrientation="portrait"
-            android:name=".view.activity.LoginActivity" >
+            android:name="com.lamnt.foodorder.view.staff.activity.LoginActivity" >
         </activity>
         <meta-data
             android:name="preloaded_fonts"

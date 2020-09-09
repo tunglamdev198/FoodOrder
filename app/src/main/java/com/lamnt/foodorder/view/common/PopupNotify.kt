@@ -6,17 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import butterknife.BindView
-import butterknife.OnClick
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.common.Key
 import com.lamnt.foodorder.view.common.ImageHelper.loadGifImage
-import com.lamnt.foodorder.view.fragment.base.BaseDialogFragment
+import com.lamnt.foodorder.view.base.BaseDialogFragment
 import kotlinx.android.synthetic.main.popup_notify.*
-import java.util.*
 
 class PopupNotify private constructor(onButtonClickListener: OnButtonClickListener) : BaseDialogFragment() {
     private val mOnButtonClickListener: OnButtonClickListener?

@@ -1,10 +1,10 @@
-package com.lamnt.foodorder.view.fragment.intro
+package com.lamnt.foodorder.view.staff.fragment.intro
 
 import android.os.Handler
 import android.view.View
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
+import com.lamnt.foodorder.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_splash.*
 
 /**

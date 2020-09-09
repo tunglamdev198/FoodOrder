@@ -1,11 +1,11 @@
-package com.lamnt.foodorder.view.fragment.intro
+package com.lamnt.foodorder.view.staff.fragment.intro
 
 import android.os.Bundle
 import android.view.View
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.common.Key
 import com.lamnt.foodorder.view.common.ImageHelper.loadImage
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
+import com.lamnt.foodorder.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_intro.*
 
 class IntroItemFragment : BaseFragment() {

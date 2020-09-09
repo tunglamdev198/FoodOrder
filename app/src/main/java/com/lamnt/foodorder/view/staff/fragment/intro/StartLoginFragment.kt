@@ -1,15 +1,13 @@
-package com.lamnt.foodorder.view.fragment.intro
+package com.lamnt.foodorder.view.staff.fragment.intro
 
 import android.content.Intent
 import android.view.View
-import android.widget.TextView
-import butterknife.BindView
 import butterknife.OnClick
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.common.Key
-import com.lamnt.foodorder.view.activity.LoginActivity
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
-import com.lamnt.foodorder.view.fragment.intro.IntroItemFragment.Companion.newInstance
+import com.lamnt.foodorder.view.staff.activity.LoginActivity
+import com.lamnt.foodorder.view.base.BaseFragment
+import com.lamnt.foodorder.view.staff.fragment.intro.IntroItemFragment.Companion.newInstance
 import kotlinx.android.synthetic.main.fragment_start_login.*
 
 class StartLoginFragment : BaseFragment() {

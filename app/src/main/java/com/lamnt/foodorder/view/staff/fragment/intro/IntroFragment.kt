@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment.intro
+package com.lamnt.foodorder.view.staff.fragment.intro
 
 import android.view.View
 import com.google.android.material.tabs.TabLayout
@@ -6,10 +6,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.utils.FragmentUtil
-import com.lamnt.foodorder.view.activity.MainActivity
+import com.lamnt.foodorder.view.staff.activity.MainActivity
 import com.lamnt.foodorder.view.adapter.pageradapter.IntroPagerAdapter
 import com.lamnt.foodorder.view.adapter.pageradapter.IntroPagerAdapter.OnTabSelected
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
+import com.lamnt.foodorder.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_intro_container.*
 
 class IntroFragment : BaseFragment(), OnTabSelected{

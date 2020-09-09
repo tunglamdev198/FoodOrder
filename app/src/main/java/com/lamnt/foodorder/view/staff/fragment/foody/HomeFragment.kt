@@ -1,14 +1,9 @@
-package com.lamnt.foodorder.view.fragment.foody
+package com.lamnt.foodorder.view.staff.fragment.foody
 
 import android.os.Handler
 import android.view.View
-import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
-import butterknife.BindView
-import butterknife.OnClick
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
@@ -18,7 +13,7 @@ import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
 import com.lamnt.foodorder.view.adapter.pageradapter.PromotionPagerAdapter
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter2
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
+import com.lamnt.foodorder.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: 4/4/20

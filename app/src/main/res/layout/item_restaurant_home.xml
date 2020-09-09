@@ -9,8 +9,8 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imgRestaurant"
         style="@style/BackGroundImageView"
-        android:layout_width="@dimen/_56sdp"
-        android:layout_height="@dimen/_56sdp"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_8sdp"
         app:riv_corner_radius="@dimen/_4sdp"
         android:layout_marginBottom="@dimen/_8sdp"

@@ -1,26 +1,19 @@
-package com.lamnt.foodorder.view.fragment.foody
+package com.lamnt.foodorder.view.staff.fragment.foody
 
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.ImageButton
-import android.widget.RatingBar
-import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import androidx.transition.TransitionInflater
-import butterknife.BindView
-import butterknife.OnClick
 import com.bumptech.glide.Glide
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.listener.OnItemClickListener
 import com.lamnt.foodorder.utils.ValidateUtil.checkNull
-import com.lamnt.foodorder.view.activity.MainActivity.Companion.instance
+import com.lamnt.foodorder.view.staff.activity.MainActivity.Companion.instance
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter3
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
-import com.makeramen.roundedimageview.RoundedImageView
+import com.lamnt.foodorder.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_restaurant.*
 
 /**

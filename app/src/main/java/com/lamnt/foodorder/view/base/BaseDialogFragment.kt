@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment.base
+package com.lamnt.foodorder.view.base
 
 import android.os.Bundle
 import android.view.*

@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.activity
+package com.lamnt.foodorder.view.staff.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import butterknife.ButterKnife
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.common.Key
 import com.lamnt.foodorder.utils.FragmentUtil
-import com.lamnt.foodorder.view.fragment.auth.LoginFragment
-import com.lamnt.foodorder.view.fragment.auth.RegisterFragment
+import com.lamnt.foodorder.view.staff.fragment.auth.LoginFragment
+import com.lamnt.foodorder.view.staff.fragment.auth.RegisterFragment
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

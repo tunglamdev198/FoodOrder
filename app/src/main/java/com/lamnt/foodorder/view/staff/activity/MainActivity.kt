@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.activity
+package com.lamnt.foodorder.view.staff.activity
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -11,12 +11,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.utils.FragmentUtil.replaceFragmentNonBackStack
-import com.lamnt.foodorder.view.fragment.foody.HomeFragment
-import com.lamnt.foodorder.view.fragment.foody.OrderFragment
-import com.lamnt.foodorder.view.fragment.payment.PaymentFragment
+import com.lamnt.foodorder.view.staff.fragment.foody.HomeFragment
+import com.lamnt.foodorder.view.staff.fragment.foody.OrderFragment
+import com.lamnt.foodorder.view.staff.fragment.payment.PaymentFragment
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private var txtTitle: TextView? = null

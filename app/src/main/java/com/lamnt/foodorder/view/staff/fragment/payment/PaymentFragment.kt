@@ -1,20 +1,20 @@
-package com.lamnt.foodorder.view.fragment.auth
+package com.lamnt.foodorder.view.staff.fragment.payment
 
 import android.view.View
 import com.lamnt.foodorder.R
-import com.lamnt.foodorder.view.fragment.base.BaseFragment
+import com.lamnt.foodorder.view.base.BaseFragment
 
-class RegisterFragment : BaseFragment() {
+class PaymentFragment : BaseFragment() {
     override fun getLayoutRes(): Int {
-        return R.layout.fragment_register
+        return R.layout.fragment_payment
     }
 
     override fun setTitle(): Int {
-        return 0
+       return R.string.text_choose_payment_options
     }
 
     override fun setViewOnClick(): List<View> {
-        return listOf()
+       return listOf()
     }
 
     override fun onViewClicked(id: Int) {
@@ -31,4 +31,5 @@ class RegisterFragment : BaseFragment() {
 
     override val isShowBottomNav: Boolean
         get() = false
+
 }

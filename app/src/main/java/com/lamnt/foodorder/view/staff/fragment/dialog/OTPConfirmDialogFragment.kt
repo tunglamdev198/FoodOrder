@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment.dialog
+package com.lamnt.foodorder.view.staff.fragment.dialog
 
 import android.os.Bundle
 import android.text.Html
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.common.Key
 import com.lamnt.foodorder.utils.ValidateUtil.checkNull
-import com.lamnt.foodorder.view.fragment.base.BaseDialogFragment
+import com.lamnt.foodorder.view.base.BaseDialogFragment
 import kotlinx.android.synthetic.main.popup_input_otp.*
 
 class OTPConfirmDialogFragment

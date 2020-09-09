@@ -1,4 +1,4 @@
-package com.lamnt.foodorder.view.fragment.base
+package com.lamnt.foodorder.view.base
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.lamnt.foodorder.view.activity.MainActivity
+import com.lamnt.foodorder.view.staff.activity.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 abstract class BaseFragment : Fragment(), View.OnClickListener {
@@ -59,36 +59,35 @@ abstract class BaseFragment : Fragment(), View.OnClickListener {
     }
 
     private fun registerListener(views: List<View>) {
-        for (view in views) {
-            view.setOnClickListener(this@BaseFragment)
-        }
+        views.forEach { view->view.setOnClickListener(this@BaseFragment)}
     }
 
     override fun onResume() {
         super.onResume()
         isViewCreated = true
-        if (MainActivity.instance != null) {
+        if (activity is MainActivity) {
+            val instance : MainActivity = activity as MainActivity
             if (setTitle() != 0)
-                MainActivity.instance!!.txt_title.setText(setTitle())
+                instance.txt_title.setText(setTitle())
             if (isShowNotificationIcon) {
-                MainActivity.instance?.btnNotification?.visibility = View.VISIBLE
+                instance.btnNotification?.visibility = View.VISIBLE
             } else {
-                MainActivity.instance?.btnNotification?.visibility = View.GONE
+                instance.btnNotification?.visibility = View.GONE
             }
             if (isShowSearchIcon) {
-                MainActivity.instance?.btnSearch?.visibility = View.VISIBLE
+                instance.btnSearch?.visibility = View.VISIBLE
             } else {
-                MainActivity.instance?.btnSearch?.visibility = View.GONE
+                instance.btnSearch?.visibility = View.GONE
             }
             if (isShowBottomNav) {
-                MainActivity.instance?.bottomNav?.visibility = View.VISIBLE
+                instance.bottomNav?.visibility = View.VISIBLE
             } else {
-                MainActivity.instance?.bottomNav?.visibility = View.GONE
+                instance.bottomNav?.visibility = View.GONE
             }
         }
     }
 
     override fun onClick(v: View?) {
-        onViewClicked(v!!.id)
+        v?.id?.let { onViewClicked(it) }
     }
 }

@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         txtTitle!!.text = titleActionBar
     }
 
-    fun loadFragment(fragment: Fragment?) {
+    private fun loadFragment(fragment: Fragment?) {
         replaceFragmentNonBackStack(this, fragment!!, false)
     }
 
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return false
     }
 
-    fun visibleBadge(menuItemId: Int) {
+    private fun visibleBadge(menuItemId : Int) {
         val badgeDrawable = bottomNav!!.getOrCreateBadge(menuItemId)
         badgeDrawable.isVisible = true
         badgeDrawable.backgroundColor = resources.getColor(android.R.color.holo_red_light)

@@ -12,8 +12,8 @@ import com.lamnt.foodorder.view.common.ImageHelper.loadGifImage
 import com.lamnt.foodorder.view.base.BaseDialogFragment
 import kotlinx.android.synthetic.main.popup_notify.*
 
-class PopupNotify private constructor(onButtonClickListener: OnButtonClickListener) : BaseDialogFragment() {
-    private val mOnButtonClickListener: OnButtonClickListener?
+class PopupNotify private constructor(onButtonClickListener: OnButtonClickListener?) : BaseDialogFragment() {
+    private val mOnButtonClickListener: OnButtonClickListener = onButtonClickListener!!
     private var mMessage: String? = null
     private var mButtonAction: String? = null
     override fun setViewOnClick(): List<View> {
@@ -82,10 +82,12 @@ class PopupNotify private constructor(onButtonClickListener: OnButtonClickListen
         const val SUCCESS = 0
         const val ERROR = 1
         @JvmStatic
-        fun newInstance(message: String?,
-                        actionButton: String?,
-                        type: Int,
-                        onButtonClickListener: OnButtonClickListener): PopupNotify {
+        fun newInstance(
+            message: String?,
+            actionButton: String?,
+            type: Int,
+            onButtonClickListener: OnButtonClickListener?
+        ): PopupNotify {
             val args = Bundle()
             args.putString(Key.SimpleKey.MESSAGE, message)
             args.putString(Key.SimpleKey.BUTTON_ACTION, actionButton)
@@ -96,7 +98,4 @@ class PopupNotify private constructor(onButtonClickListener: OnButtonClickListen
         }
     }
 
-    init {
-        mOnButtonClickListener = onButtonClickListener
-    }
 }

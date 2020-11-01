@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 open class ResponseDTO : Serializable {
-    var code: String? = null
+    var code: Int? = null
 
     @Expose
     @SerializedName("message")
@@ -13,7 +13,7 @@ open class ResponseDTO : Serializable {
 
     @Expose
     @SerializedName("success")
-    var success: String? = null
+    var success: Boolean? = null
 
     @Expose
     @SerializedName("status")

@@ -15,7 +15,7 @@ import com.facebook.login.LoginResult
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.listener.OnResponseListener
 import com.lamnt.foodorder.model.dto.DataDTO
-import com.lamnt.foodorder.network.BaseObserver.Companion.build
+import com.lamnt.foodorder.network.RequestCommon.Companion.build
 import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
 import com.lamnt.foodorder.utils.FragmentUtil.showDialogFragment
 import com.lamnt.foodorder.view.staff.activity.MainActivity
@@ -26,7 +26,6 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.json.JSONException
 import java.util.*
-import kotlin.collections.ArrayList
 
 class LoginFragment : BaseFragment() {
     private var isShowPassword = false
@@ -58,13 +57,13 @@ class LoginFragment : BaseFragment() {
 
     override fun unit() {
         mCompositeDisposable = CompositeDisposable()
-        val baseObserver = activity?.let {build(it) }
-        baseObserver?.getMapping("employees", object : OnResponseListener {
+        val baseObserver = activity?.let {build<DataDTO>(it) }
+        baseObserver?.getMapping("employees", object : OnResponseListener<DataDTO> {
             override fun returnDisposable(disposable: Disposable?) {
                 disposable?.let { mCompositeDisposable?.add(it) }
             }
-            override fun returnResult(data: DataDTO?) {
-                Log.d(TAG, "returnResult: ${data?.employee.toString()}")
+            override fun returnResult(e: DataDTO) {
+                Log.d(TAG, "returnResult: ${e.employee.toString()}")
             }
             override fun returnError(message: String?) {}
         })

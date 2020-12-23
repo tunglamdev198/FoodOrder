@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="fragment"
+            type="com.lamnt.foodorder.view.staff.fragment.intro.IntroFragment" />
+    </data>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,6 +52,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:background="@drawable/bg_btn_login"
             android:text="@string/text_continue"
+            android:onClick="@{()->fragment.onBtnNextClicked()}"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -58,7 +65,9 @@
             android:background="@drawable/bg_btn_white"
             android:text="@string/text_skip"
             android:textColor="@android:color/black"
+            android:onClick="@{()->fragment.onBtnSkipClicked()}"
             android:layout_marginTop="@dimen/_12sdp"/>
     </LinearLayout>
 
 </RelativeLayout>
+</layout>

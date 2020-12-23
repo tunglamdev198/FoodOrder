@@ -2,53 +2,28 @@ package com.lamnt.foodorder.view.staff.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import butterknife.ButterKnife
-import butterknife.OnClick
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.lamnt.foodorder.R
+import com.lamnt.foodorder.databinding.ActivityMainBinding
 import com.lamnt.foodorder.utils.FragmentUtil.replaceFragmentNonBackStack
+import com.lamnt.foodorder.view.base.BaseActivity
 import com.lamnt.foodorder.view.staff.fragment.foody.HomeFragment
 import com.lamnt.foodorder.view.staff.fragment.foody.OrderFragment
 import com.lamnt.foodorder.view.staff.fragment.payment.PaymentFragment
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    private var txtTitle: TextView? = null
-    var btnSearch: ImageView? = null
-    var btnNotification: ImageView? = null
-    var bottomNav: BottomNavigationView? = null
-    var refreshLayout: SwipeRefreshLayout? = null
-    var toolBar: RelativeLayout? = null
+class MainActivity : BaseActivity<ActivityMainBinding>(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         instance = this
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        ButterKnife.bind(this)
-        txtTitle = findViewById(R.id.txt_title)
-        btnSearch = findViewById(R.id.btn_search)
-        btnNotification = findViewById(R.id.btn_notify)
-        bottomNav = findViewById(R.id.bottom_nav)
-        refreshLayout = findViewById(R.id.refresh_layout)
-        toolBar = findViewById(R.id.tb)
-        refreshLayout.run { this?.setRefreshing(false) }
-        with(bottomNav) {
-            this?.setOnNavigationItemSelectedListener(this@MainActivity)
-            this?.setSelectedItemId(R.id.mnu_home) }
+        with(viewBinding.bottomNav) {
+            this.setOnNavigationItemSelectedListener(this@MainActivity)
+            this.selectedItemId = R.id.mnu_home
+        }
         visibleBadge(R.id.mnu_bag)
     }
-
-    @OnClick(R.id.btn_back)
-    fun onBackClicked() {
-        super.onBackPressed()
-    }
-
     fun setTitleActionBar(titleActionBar: String?) {
-        txtTitle!!.text = titleActionBar
+        viewBinding.txtTitle.text = titleActionBar
     }
 
     private fun loadFragment(fragment: Fragment?) {
@@ -74,14 +49,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     private fun visibleBadge(menuItemId : Int) {
-        val badgeDrawable = bottomNav!!.getOrCreateBadge(menuItemId)
+        val badgeDrawable = viewBinding.bottomNav.getOrCreateBadge(menuItemId)
         badgeDrawable.isVisible = true
         badgeDrawable.backgroundColor = resources.getColor(android.R.color.holo_red_light)
         badgeDrawable.number = 8
     }
 
     fun goneBadge(menuItemId: Int) {
-        val badgeDrawable = bottomNav!!.getBadge(menuItemId)
+        val badgeDrawable = viewBinding.bottomNav.getBadge(menuItemId)
         if (badgeDrawable != null) {
             badgeDrawable.isVisible = false
         }
@@ -92,5 +67,27 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         @get:Synchronized
         var instance: MainActivity? = null
             private set
+    }
+
+    override fun setLayoutId(): Int = R.layout.activity_main
+
+    override fun initViewModel() {
+
+    }
+
+    override fun initView() {
+
+    }
+
+    override fun initDataBinding() {
+
+    }
+
+    override fun initData() {
+
+    }
+
+    override fun initObserver() {
+
     }
 }

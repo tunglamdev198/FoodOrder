@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="loginFragment"
+            type="com.lamnt.foodorder.view.staff.fragment.auth.LoginFragment" />
+    </data>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -91,6 +97,7 @@
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:src="@drawable/ic_show_password"
                 android:layout_centerVertical="true"
+                android:onClick="@{()->loginFragment.onBtnVisibleClicked()}"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -101,6 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
             android:text="@string/text_forgot_password"
+            android:onClick="@{()->loginFragment.onBtnForgotPasswordClicked()}"
             android:textColor="@color/colorTextColorGray" />
 
         <Button
@@ -110,7 +118,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:background="@drawable/bg_btn_login"
             android:text="@string/text_login"
-            android:onClick="onBtnLoginClicked"
+            android:onClick="@{()->loginFragment.onBtnLoginClicked()}"
             android:textColor="@android:color/white"
             tools:ignore="OnClick" />
 
@@ -155,7 +163,7 @@
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
-                android:onClick="onBtnLoginFacebookClicked"
+                android:onClick="@{()->loginFragment.onBtnLoginFacebookClicked()}"
                 android:src="@drawable/ic_facebook"
                 tools:ignore="OnClick" />
 
@@ -163,7 +171,7 @@
                 android:id="@+id/btnLoginGoogle"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:onClick="onBtnLoginGoogleClicked"
+                android:onClick="@{()->loginFragment.onBtnLoginGoogleClicked()}"
                 android:src="@drawable/ic_google"
                 tools:ignore="OnClick" />
         </LinearLayout>
@@ -177,7 +185,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_28sdp"
         android:text="@string/text_need_register"
-        android:onClick="onTxtRegisterClicked"
+        android:onClick="@{()->loginFragment.onTxtRegisterClicked()}"
         android:textColor="@color/colorOrange"
         tools:ignore="OnClick" />
 </RelativeLayout>
+</layout>

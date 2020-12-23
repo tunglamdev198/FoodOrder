@@ -2,33 +2,34 @@ package com.lamnt.foodorder.view.staff.fragment.auth
 
 import android.view.View
 import com.lamnt.foodorder.R
+import com.lamnt.foodorder.databinding.FragmentRegisterBinding
 import com.lamnt.foodorder.view.base.BaseFragment
+import com.lamnt.foodorder.view.base.BaseFragmentMVVM
+import com.lamnt.foodorder.viewmodel.RegisterFragmentViewModel
 
-class RegisterFragment : BaseFragment() {
-    override fun getLayoutRes(): Int {
-        return R.layout.fragment_register
+class RegisterFragment : BaseFragmentMVVM<RegisterFragmentViewModel,FragmentRegisterBinding>() {
+    override fun initViewModel() {
+
     }
 
-    override fun setTitle(): Int {
-        return 0
+    override fun initObserver() {
+
     }
 
-    override fun setViewOnClick(): List<View> {
-        return listOf()
+    override fun getLayoutRes(): Int = R.layout.fragment_register
+
+    override fun setTitle(): Int = 0
+
+    override fun initViews() {
+
     }
 
-    override fun onViewClicked(id: Int) {
-        TODO("Not yet implemented")
+    override fun initDataBinding() {
+
     }
 
-    override fun unit() {}
+    override fun initData() {
 
-    override val isShowNotificationIcon: Boolean
-        get() = false
+    }
 
-    override val isShowSearchIcon: Boolean
-        get() = false
-
-    override val isShowBottomNav: Boolean
-        get() = false
 }

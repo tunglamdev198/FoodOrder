@@ -1,155 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:background="@android:color/white"
-    tools:context=".view.staff.fragment.foody.OrderFragment">
+<layout>
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.lamnt.foodorder.view.staff.fragment.foody.OrderFragment" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/cv_payment"
-        android:orientation="vertical">
+        android:animateLayoutChanges="true"
+        android:background="@android:color/white"
+        tools:context=".view.staff.fragment.foody.OrderFragment">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/cvPayment"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:src="@drawable/ic_location_orange" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/text_address_shipment"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_location_orange" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_12sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/text_address_shipment"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_11ssp" />
 
-            <EditText
-                android:id="@+id/edtAddress"
-                android:editable="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:background="@android:color/white"
-                android:padding="@dimen/_4sdp"
-                android:textSize="@dimen/_11ssp"
-                tools:text="232 Phạm Văn Đồng, Cổ nhuế" />
-
-            <ImageView
-                android:id="@+id/btnEdit"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_edit_address" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/edtAddress"
-                android:layout_marginEnd="@dimen/_22sdp"
-                android:alpha="0.4"
-                android:background="@android:color/darker_gray" />
-        </RelativeLayout>
-
-        <CheckBox
-            android:id="@+id/cbSelectAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            android:button="@drawable/bg_check_box_selector"
-            android:checked="true"
-            android:padding="@dimen/_8sdp"
-            android:text="@string/text_select_all"
-            android:textSize="@dimen/_13ssp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvListFood"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="2"
-            tools:listitem="@layout/item_food_payment" />
-    </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvPayment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-        <LinearLayout
-            android:id="@+id/lnPayment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:animateLayoutChanges="true"
-            android:background="@android:color/white"
-            android:orientation="vertical">
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_12sdp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/edtAddress"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_amount_payment"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold" />
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@android:color/white"
+                    android:editable="false"
+                    android:padding="@dimen/_4sdp"
+                    android:textSize="@dimen/_11ssp"
+                    tools:text="232 Phạm Văn Đồng, Cổ nhuế" />
 
                 <ImageView
-                    android:id="@+id/btnHide"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:id="@+id/btnEdit"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrow_drop_down" />
+                    android:onClick="@{()->fragment.onBtnEditClicked()}"
+                    android:src="@drawable/ic_edit_address" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/edtAddress"
+                    android:layout_marginEnd="@dimen/_22sdp"
+                    android:alpha="0.4"
+                    android:background="@android:color/darker_gray" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+            <CheckBox
+                android:id="@+id/cbSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:alpha="0.4"
-                android:background="@android:color/darker_gray" />
+                android:button="@drawable/bg_check_box_selector"
+                android:checked="true"
+                android:padding="@dimen/_8sdp"
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                android:text="@string/text_select_all"
+                android:textSize="@dimen/_13ssp" />
 
-            <LinearLayout
-                android:id="@+id/lnPaymentExpandable"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_food_payment" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:id="@+id/lnPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:animateLayoutChanges="true"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/rlOrderValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12sdp"
@@ -159,104 +131,144 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_order_value"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_11ssp"
+                        android:text="@string/text_amount_payment"
+                        android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txtOrderValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/btnHide"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentEnd="true"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold"
-                        android:text="25.000đ" />
+                        android:layout_centerVertical="true"
+                        android:onClick="@{()->fragment.onBtnHideClicked()}"
+                        android:src="@drawable/ic_arrow_drop_down" />
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/rlDeliveryValue"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:alpha="0.4"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:id="@+id/lnPaymentExpandable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_12sdp">
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlOrderValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_order_value"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtOrderValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="25.000đ"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlDeliveryValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_delivery_value"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtDeliveryValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="25.000đ"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_discount"
+                            android:textColor="@color/colorTextDiscount"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="-5.000đ"
+                            android:textColor="@color/colorTextDiscount"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
 
                     <TextView
+                        android:id="@+id/txtDiscountCode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_delivery_value"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_11ssp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:onClick="@{()->fragment.onTxtDiscountCodeClicked()}"
+                        android:text="@string/text_discount_code"
+                        android:textColor="@color/colorPriceBlue"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtDeliveryValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold"
-                        android:text="25.000đ" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rlDiscount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_12sdp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txt_discount"
-                        android:textColor="@color/colorTextDiscount"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtDiscount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@color/colorTextDiscount"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold"
-                        android:text="-5.000đ" />
-                </RelativeLayout>
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/txtDiscountCode"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/btnPayment"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:text="@string/text_discount_code"
-                    android:textColor="@color/colorPriceBlue"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/bg_btn_green"
+                    android:gravity="center"
+                    android:onClick="@{()->fragment.onBtnPaymentClicked()}"
+                    android:padding="@dimen/_4sdp"
+                    android:text="Thanh toán 45.000đ"
+                    android:textColor="@android:color/white"
                     android:textStyle="bold" />
+
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/btnPayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:background="@drawable/bg_btn_green"
-                android:gravity="center"
-                android:padding="@dimen/_4sdp"
-                android:text="Thanh toán 45.000đ"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

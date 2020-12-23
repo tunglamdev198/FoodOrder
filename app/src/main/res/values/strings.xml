@@ -48,4 +48,6 @@
     <string name="text_is_open">Đang mở</string>
     <string name="msg_server_exception">Không có phản hồi từ hệ thống! Vui lòng thử lại sau.</string>
     <string name="msg_output_empty">Không có data trả về từ hệ thống! Vui lòng thử lại sau.</string>
+    <string name="text_no">No</string>
+    <string name="text_yes">Yes</string>
 </resources>

@@ -1,79 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:id="@+id/refresh_layout"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.staff.activity.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
-        android:id="@+id/tb"
+        tools:context=".view.staff.activity.MainActivity"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@android:color/white">
-        <ImageView
-            android:id="@+id/btn_back"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:padding="@dimen/_2sdp"
-            android:src="@drawable/ic_back"
-            android:layout_centerVertical="true"/>
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/_13ssp"
-            android:text="Màn hình chính" />
+        <RelativeLayout
+            android:id="@+id/tb"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@android:color/white">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:orientation="horizontal">
             <ImageView
-                android:id="@+id/btn_search"
-                android:padding="@dimen/_2sdp"
+                android:id="@+id/btn_back"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/ic_search"/>
-
-            <ImageView
-                android:padding="@dimen/_2sdp"
-                android:id="@+id/btn_notify"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/ic_icon_notify"/>
-        </LinearLayout>
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Màn hình chính"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/btn_search"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@drawable/ic_search" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/btn_notify"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@drawable/ic_icon_notify" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_nav"
+            android:layout_below="@+id/tb"
+            android:background="@android:color/white" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/menu_bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white" />
+
     </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav"
-        android:layout_below="@+id/tb"
-        android:background="@android:color/white" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        app:labelVisibilityMode="unlabeled"
-        android:id="@+id/bottom_nav"
-        app:menu="@menu/menu_bottom_nav"
-        android:background="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</RelativeLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

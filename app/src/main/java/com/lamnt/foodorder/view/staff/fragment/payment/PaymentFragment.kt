@@ -1,10 +1,11 @@
 package com.lamnt.foodorder.view.staff.fragment.payment
 
-import android.view.View
 import com.lamnt.foodorder.R
-import com.lamnt.foodorder.view.base.BaseFragment
+import com.lamnt.foodorder.databinding.FragmentPaymentBinding
+import com.lamnt.foodorder.view.base.BaseFragmentMVVM
+import com.lamnt.foodorder.viewmodel.PaymentFragmentViewModel
 
-class PaymentFragment : BaseFragment() {
+class PaymentFragment : BaseFragmentMVVM<PaymentFragmentViewModel,FragmentPaymentBinding>() {
     override fun getLayoutRes(): Int {
         return R.layout.fragment_payment
     }
@@ -13,23 +14,24 @@ class PaymentFragment : BaseFragment() {
        return R.string.text_choose_payment_options
     }
 
-    override fun setViewOnClick(): List<View> {
-       return listOf()
+    override fun initViewModel() {
+
     }
 
-    override fun onViewClicked(id: Int) {
-        TODO("Not yet implemented")
+    override fun initObserver() {
+
     }
 
-    override fun unit() {}
+    override fun initViews() {
 
-    override val isShowNotificationIcon: Boolean
-        get() = false
+    }
 
-    override val isShowSearchIcon: Boolean
-        get() = false
+    override fun initDataBinding() {
 
-    override val isShowBottomNav: Boolean
-        get() = false
+    }
+
+    override fun initData() {
+
+    }
 
 }

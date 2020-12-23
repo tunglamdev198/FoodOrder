@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
-
-    <FrameLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/lnButton"
-        android:id="@+id/frame_container"/>
-
-    <LinearLayout
+<layout>
+    <data>
+        <variable
+            name="fragment"
+            type="com.lamnt.foodorder.view.staff.fragment.intro.StartLoginFragment" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:layout_marginBottom="@dimen/_24sdp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/lnButton">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
-        <TextView
-            android:id="@+id/btnLogin"
-            android:padding="@dimen/_8sdp"
-            android:textAllCaps="true"
-            android:gravity="center"
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/lnButton" />
+
+        <LinearLayout
+            android:id="@+id/lnButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_login"
-            android:onClick="onLoginClicked"
-            android:text="@string/text_login"
-            android:textColor="@android:color/white" />
-
-        <TextView
-            android:id="@+id/btnRegister"
-            android:padding="@dimen/_8sdp"
-            android:textAllCaps="true"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_12sdp"
-            android:background="@drawable/bg_btn_white"
-            android:text="@string/text_register"
-            android:onClick="onRegisterClicked"
-            android:textColor="@android:color/black" />
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_login"
+                android:gravity="center"
+                android:onClick="@{()->fragment.onLoginClicked()}"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/text_login"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/bg_btn_white"
+                android:gravity="center"
+                android:onClick="@{()->fragment.onRegisterClicked()}"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/text_register"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

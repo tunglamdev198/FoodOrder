@@ -6,15 +6,13 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.databinding.FragmentHomeBinding
 import com.lamnt.foodorder.listener.OnItemClickListener
-import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
+import com.lamnt.foodorder.utils.ActivityUtil.replaceFragment
 import com.lamnt.foodorder.view.adapter.pageradapter.PromotionPagerAdapter
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter
 import com.lamnt.foodorder.view.adapter.recycleradapter.FoodsAdapter2
-import com.lamnt.foodorder.view.base.BaseFragment
 import com.lamnt.foodorder.view.base.BaseFragmentMVVM
 import com.lamnt.foodorder.viewmodel.HomeFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_home.*

@@ -15,8 +15,8 @@ import com.lamnt.foodorder.databinding.FragmentLoginBinding
 import com.lamnt.foodorder.listener.OnResponseListener
 import com.lamnt.foodorder.model.dto.DataDTO
 import com.lamnt.foodorder.network.RequestCommon.Companion.build
-import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
-import com.lamnt.foodorder.utils.FragmentUtil.showDialogFragment
+import com.lamnt.foodorder.utils.ActivityUtil.replaceFragment
+import com.lamnt.foodorder.utils.ActivityUtil.showDialogFragment
 import com.lamnt.foodorder.view.base.BaseFragmentMVVM
 import com.lamnt.foodorder.view.staff.activity.MainActivity
 import com.lamnt.foodorder.view.staff.fragment.dialog.OTPConfirmDialogFragment

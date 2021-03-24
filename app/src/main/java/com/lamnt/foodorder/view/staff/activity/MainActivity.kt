@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.databinding.ActivityMainBinding
-import com.lamnt.foodorder.utils.FragmentUtil.replaceFragmentNonBackStack
+import com.lamnt.foodorder.utils.ActivityUtil.replaceFragmentNonBackStack
 import com.lamnt.foodorder.view.base.BaseActivity
 import com.lamnt.foodorder.view.staff.fragment.foody.HomeFragment
 import com.lamnt.foodorder.view.staff.fragment.foody.OrderFragment

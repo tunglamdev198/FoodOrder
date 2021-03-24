@@ -5,7 +5,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.databinding.FragmentIntroContainerBinding
-import com.lamnt.foodorder.utils.FragmentUtil
+import com.lamnt.foodorder.utils.ActivityUtil
 import com.lamnt.foodorder.view.adapter.pageradapter.IntroPagerAdapter
 import com.lamnt.foodorder.view.adapter.pageradapter.IntroPagerAdapter.OnTabSelected
 import com.lamnt.foodorder.view.base.BaseFragment
@@ -23,12 +23,12 @@ class IntroFragment : BaseFragment<FragmentIntroContainerBinding>(), OnTabSelect
         if (viewBinding.tabLayout.selectedTabPosition != 2) {
             viewBinding.vpIntro.currentItem = tab_layout!!.selectedTabPosition + 1
         } else {
-            FragmentUtil.replaceFragment(activity, R.id.frame_splash_container, StartLoginFragment(), true)
+            ActivityUtil.replaceFragment(activity, R.id.frame_splash_container, StartLoginFragment(), true)
         }
     }
 
     fun onBtnSkipClicked() {
-        FragmentUtil.replaceFragment(activity, R.id.frame_splash_container, StartLoginFragment(), true)
+        ActivityUtil.replaceFragment(activity, R.id.frame_splash_container, StartLoginFragment(), true)
     }
 
     override fun onItemSelected(position: Int) {

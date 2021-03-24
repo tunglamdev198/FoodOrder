@@ -3,8 +3,8 @@ package com.lamnt.foodorder.view.staff.fragment.foody
 import android.view.View
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.databinding.FragmentOrderBinding
-import com.lamnt.foodorder.utils.FragmentUtil.replaceFragment
-import com.lamnt.foodorder.utils.FragmentUtil.showDialogFragment
+import com.lamnt.foodorder.utils.ActivityUtil.replaceFragment
+import com.lamnt.foodorder.utils.ActivityUtil.showDialogFragment
 import com.lamnt.foodorder.view.adapter.recycleradapter.OrdersAdapter
 import com.lamnt.foodorder.view.base.BaseFragmentMVVM
 import com.lamnt.foodorder.view.common.PopupNotify

@@ -7,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lamnt.foodorder.R
 import com.lamnt.foodorder.common.Key
-import com.lamnt.foodorder.utils.FragmentUtil
+import com.lamnt.foodorder.utils.ActivityUtil
 import com.lamnt.foodorder.view.staff.fragment.auth.LoginFragment
 import com.lamnt.foodorder.view.staff.fragment.auth.RegisterFragment
-
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loadFragment(fragment: Fragment) {
-        FragmentUtil.replaceFragment(this, R.id.login_container, fragment, true)
+        ActivityUtil.replaceFragment(this, R.id.login_container, fragment, true)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -2,13 +2,10 @@ package com.lamnt.foodorder.network
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import com.lamnt.foodorder.common.baserx.NetworkObserver
-import com.lamnt.foodorder.common.baserx.NetworkObserver.OnRequest
 import com.lamnt.foodorder.listener.OnActionSuccessListener
 import com.lamnt.foodorder.listener.OnResponseListener
-import com.lamnt.foodorder.model.dto.DataDTO
 import com.lamnt.foodorder.model.dto.ResponseDTO
-import com.lamnt.foodorder.utils.FragmentUtil.showDialogFragment
+import com.lamnt.foodorder.utils.ActivityUtil.showDialogFragment
 import com.lamnt.foodorder.view.staff.fragment.dialog.ProcessDialog
 import io.reactivex.Completable
 import io.reactivex.CompletableObserver
@@ -24,43 +21,13 @@ class RequestCommon<E : ResponseDTO> private constructor(private val context: Ac
     private fun requestAPI(observable: Observable<E>,
                            onResponseListener: OnResponseListener<E>) {
         showProcess()
-        val networkObserver : NetworkObserver<E> = NetworkObserver(context, object : OnRequest<E>{
-            override fun requestDone() {
-                processDialog.dismiss()
-            }
-
-            override fun returnDisposable(d: Disposable) {
-                onResponseListener.returnDisposable(d);
-            }
-
-            override fun returnData(e: E) {
-                onResponseListener.returnResult(e)
-            }
-
-        })
         observable.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(networkObserver);
+            .subscribe(networkObserver)
     }
 
     private fun showProcess() {
         showDialogFragment(context, processDialog)
-    }
-
-
-    @JvmSuppressWildcards
-    fun getMapping(
-        endpoint: String?,
-        onResponseListener: OnResponseListener<E>){
-
-    }
-
-    fun deleteMapping(
-        endpoint: String?,
-        onResponseListener: OnActionSuccessListener
-    ) {
-        val completable: Completable = Request.getService().deleteMapping(endpoint)
-        getObserverNoData(completable, onResponseListener)
     }
 
     private fun getObserverNoData(

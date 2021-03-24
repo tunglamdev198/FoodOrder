@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.lamnt.foodorder.R
+import dagger.hilt.android.AndroidEntryPoint
 
 abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
 

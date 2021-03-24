@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.lamnt.foodorder.R
 
-object FragmentUtil {
+object ActivityUtil {
     @JvmStatic
     fun replaceFragment(activity: Activity?,
                         fragment: Fragment,
